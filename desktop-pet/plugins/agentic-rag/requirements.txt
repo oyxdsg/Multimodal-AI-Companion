@@ -1,0 +1,14 @@
+# agentic-rag 插件依赖（宿主只提示、不代装）
+#
+# 安装：
+#   pip install -r desktop-pet/plugins/agentic-rag/requirements.txt
+
+# ---- 运行时（检索）----
+numpy                     # NLU 微模型 / 数值
+jieba                     # BM25 与重排的中文分词
+sentence-transformers     # bge 向量嵌入（会带入 torch，体积较大）
+faiss-cpu                 # 向量索引
+
+# ---- 仅建库时需要 ----
+mwparserfromhell          # 解析维基文本（parse.py）
+playwright                # 下载维基正文（download_wiki.py；也可手动下载）

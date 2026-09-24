@@ -1,0 +1,14 @@
+# 第三方组件与数据声明（NOTICE）
+
+本工作区含多个子项目：
+
+- `desktop-pet/` —— 桌面宠物（MIT，主体代码）
+- `deskpet-mod/` —— Minecraft Fabric 模组
+- `deskpet-tools/` —— 素材/角色包制作工具
+
+各子项目遵循各自许可。`desktop-pet/` 的第三方声明详见
+[`desktop-pet/NOTICE`](desktop-pet/NOTICE)（含 Minecraft Wiki、Lucide、车万女仆、
+可选插件与素材的许可说明）。
+
+> **插件代码**随主仓库发布，**插件数据**不随；完整动画素材、绿幕素材源、Wiki 数据库、
+> RAG 索引**均不随主仓库发布**，由用户自备或按文档重建。

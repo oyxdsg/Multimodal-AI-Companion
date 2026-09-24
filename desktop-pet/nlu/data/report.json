@@ -1,0 +1,694 @@
+{
+  "generated": "2026-09-16 20:09:25",
+  "sizes": {
+    "train": 18804,
+    "val": 1136,
+    "vocab": 12558,
+    "params": 405723,
+    "manual_extra": 398,
+    "manual_weight": 5,
+    "distill_extra": 549,
+    "distill_weight": 12,
+    "soft_rows": 1464
+  },
+  "hparams": {
+    "epochs": 30,
+    "bs": 128,
+    "lr": 0.003,
+    "emb": 32,
+    "hidden": 64,
+    "dropout": 0.15,
+    "noise": 0.5,
+    "resume": false
+  },
+  "val_acc": 0.9921,
+  "best_epoch": 19,
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 2.2823,
+      "val_acc": 0.6796
+    },
+    {
+      "epoch": 2,
+      "loss": 0.6703,
+      "val_acc": 0.9208
+    },
+    {
+      "epoch": 3,
+      "loss": 0.4535,
+      "val_acc": 0.9621
+    },
+    {
+      "epoch": 4,
+      "loss": 0.3972,
+      "val_acc": 0.9683
+    },
+    {
+      "epoch": 5,
+      "loss": 0.37,
+      "val_acc": 0.971
+    },
+    {
+      "epoch": 6,
+      "loss": 0.3516,
+      "val_acc": 0.9824
+    },
+    {
+      "epoch": 7,
+      "loss": 0.3402,
+      "val_acc": 0.9806
+    },
+    {
+      "epoch": 8,
+      "loss": 0.3295,
+      "val_acc": 0.9833
+    },
+    {
+      "epoch": 9,
+      "loss": 0.324,
+      "val_acc": 0.9859
+    },
+    {
+      "epoch": 10,
+      "loss": 0.3194,
+      "val_acc": 0.9815
+    },
+    {
+      "epoch": 11,
+      "loss": 0.3129,
+      "val_acc": 0.9886
+    },
+    {
+      "epoch": 12,
+      "loss": 0.309,
+      "val_acc": 0.9894
+    },
+    {
+      "epoch": 13,
+      "loss": 0.3046,
+      "val_acc": 0.9877
+    },
+    {
+      "epoch": 14,
+      "loss": 0.3026,
+      "val_acc": 0.9842
+    },
+    {
+      "epoch": 15,
+      "loss": 0.2987,
+      "val_acc": 0.9903
+    },
+    {
+      "epoch": 16,
+      "loss": 0.2963,
+      "val_acc": 0.9894
+    },
+    {
+      "epoch": 17,
+      "loss": 0.294,
+      "val_acc": 0.9903
+    },
+    {
+      "epoch": 18,
+      "loss": 0.2921,
+      "val_acc": 0.9868
+    },
+    {
+      "epoch": 19,
+      "loss": 0.2909,
+      "val_acc": 0.9921
+    },
+    {
+      "epoch": 20,
+      "loss": 0.2887,
+      "val_acc": 0.9886
+    },
+    {
+      "epoch": 21,
+      "loss": 0.2879,
+      "val_acc": 0.9886
+    },
+    {
+      "epoch": 22,
+      "loss": 0.2871,
+      "val_acc": 0.9912
+    },
+    {
+      "epoch": 23,
+      "loss": 0.2859,
+      "val_acc": 0.9912
+    },
+    {
+      "epoch": 24,
+      "loss": 0.2855,
+      "val_acc": 0.9903
+    },
+    {
+      "epoch": 25,
+      "loss": 0.2839,
+      "val_acc": 0.9921
+    },
+    {
+      "epoch": 26,
+      "loss": 0.2832,
+      "val_acc": 0.9894
+    },
+    {
+      "epoch": 27,
+      "loss": 0.2836,
+      "val_acc": 0.9877
+    },
+    {
+      "epoch": 28,
+      "loss": 0.2835,
+      "val_acc": 0.9894
+    },
+    {
+      "epoch": 29,
+      "loss": 0.2831,
+      "val_acc": 0.9912
+    },
+    {
+      "epoch": 30,
+      "loss": 0.2826,
+      "val_acc": 0.9903
+    }
+  ],
+  "per_class": {
+    "attack": {
+      "label": "攻击",
+      "precision": 0.9804,
+      "recall": 1.0,
+      "f1": 0.9901,
+      "support": 50
+    },
+    "guard": {
+      "label": "护卫",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 37
+    },
+    "feed": {
+      "label": "喂食",
+      "precision": 0.9756,
+      "recall": 1.0,
+      "f1": 0.9877,
+      "support": 40
+    },
+    "eat": {
+      "label": "进食",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 45
+    },
+    "mine": {
+      "label": "挖矿",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 49
+    },
+    "farm": {
+      "label": "耕作",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 58
+    },
+    "collect": {
+      "label": "收集",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 48
+    },
+    "craft": {
+      "label": "合成",
+      "precision": 0.9792,
+      "recall": 0.9592,
+      "f1": 0.9691,
+      "support": 49
+    },
+    "smelt": {
+      "label": "烧炼",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 35
+    },
+    "build": {
+      "label": "建造",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 31
+    },
+    "transfer": {
+      "label": "转移物品",
+      "precision": 0.94,
+      "recall": 1.0,
+      "f1": 0.9691,
+      "support": 47
+    },
+    "chestopen": {
+      "label": "开箱子",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 38
+    },
+    "chestput": {
+      "label": "存箱子",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 35
+    },
+    "chesttake": {
+      "label": "取箱子",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 38
+    },
+    "move": {
+      "label": "移动",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 44
+    },
+    "look": {
+      "label": "张望",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 46
+    },
+    "break": {
+      "label": "挖除方块",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 33
+    },
+    "place": {
+      "label": "放置",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 33
+    },
+    "use": {
+      "label": "使用物品",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 40
+    },
+    "equip": {
+      "label": "装备",
+      "precision": 1.0,
+      "recall": 0.9333,
+      "f1": 0.9655,
+      "support": 45
+    },
+    "store": {
+      "label": "收纳",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 42
+    },
+    "drop": {
+      "label": "丢出",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 38
+    },
+    "sit": {
+      "label": "坐/站切换",
+      "precision": 1.0,
+      "recall": 0.9778,
+      "f1": 0.9888,
+      "support": 45
+    },
+    "stop": {
+      "label": "停下",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 47
+    },
+    "status": {
+      "label": "查状态",
+      "precision": 1.0,
+      "recall": 0.9535,
+      "f1": 0.9762,
+      "support": 43
+    },
+    "cancel": {
+      "label": "取消任务",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "support": 44
+    },
+    "chat": {
+      "label": "闲聊",
+      "precision": 0.9211,
+      "recall": 0.9722,
+      "f1": 0.9459,
+      "support": 36
+    }
+  },
+  "top_confusions": [
+    {
+      "true": "equip",
+      "pred": "transfer",
+      "n": 3
+    },
+    {
+      "true": "status",
+      "pred": "chat",
+      "n": 2
+    },
+    {
+      "true": "craft",
+      "pred": "attack",
+      "n": 1
+    },
+    {
+      "true": "sit",
+      "pred": "feed",
+      "n": 1
+    },
+    {
+      "true": "craft",
+      "pred": "chat",
+      "n": 1
+    },
+    {
+      "true": "chat",
+      "pred": "craft",
+      "n": 1
+    }
+  ],
+  "thresholds": {
+    "0.50": {
+      "coverage": 0.9754,
+      "accuracy": 0.9937,
+      "auto_coverage": 0.9419,
+      "auto_precision": 0.9963,
+      "chat_false_activation": 0.0
+    },
+    "0.70": {
+      "coverage": 0.9067,
+      "accuracy": 0.9971,
+      "auto_coverage": 0.8759,
+      "auto_precision": 0.997,
+      "chat_false_activation": 0.0
+    },
+    "0.85": {
+      "coverage": 0.7614,
+      "accuracy": 0.9977,
+      "auto_coverage": 0.7315,
+      "auto_precision": 0.9976,
+      "chat_false_activation": 0.0
+    },
+    "0.90": {
+      "coverage": 0.6646,
+      "accuracy": 0.9974,
+      "auto_coverage": 0.6373,
+      "auto_precision": 0.9972,
+      "chat_false_activation": 0.0
+    }
+  },
+  "manual_eval": {
+    "file": "manual_test.json",
+    "total": 208,
+    "accuracy": 0.899,
+    "auto_hits": 129,
+    "auto_accuracy": 0.9535,
+    "chat_false_activation": 0,
+    "by_intent": {
+      "attack": {
+        "correct": 7,
+        "total": 8
+      },
+      "guard": {
+        "correct": 4,
+        "total": 6
+      },
+      "feed": {
+        "correct": 7,
+        "total": 8
+      },
+      "mine": {
+        "correct": 10,
+        "total": 11
+      },
+      "farm": {
+        "correct": 5,
+        "total": 7
+      },
+      "collect": {
+        "correct": 14,
+        "total": 14
+      },
+      "craft": {
+        "correct": 10,
+        "total": 11
+      },
+      "smelt": {
+        "correct": 7,
+        "total": 8
+      },
+      "build": {
+        "correct": 4,
+        "total": 7
+      },
+      "transfer": {
+        "correct": 7,
+        "total": 7
+      },
+      "chestopen": {
+        "correct": 9,
+        "total": 9
+      },
+      "chestput": {
+        "correct": 7,
+        "total": 7
+      },
+      "chesttake": {
+        "correct": 7,
+        "total": 7
+      },
+      "move": {
+        "correct": 8,
+        "total": 8
+      },
+      "look": {
+        "correct": 6,
+        "total": 6
+      },
+      "break": {
+        "correct": 5,
+        "total": 8
+      },
+      "place": {
+        "correct": 7,
+        "total": 7
+      },
+      "use": {
+        "correct": 6,
+        "total": 6
+      },
+      "equip": {
+        "correct": 8,
+        "total": 8
+      },
+      "store": {
+        "correct": 5,
+        "total": 7
+      },
+      "drop": {
+        "correct": 6,
+        "total": 6
+      },
+      "sit": {
+        "correct": 6,
+        "total": 7
+      },
+      "stop": {
+        "correct": 7,
+        "total": 8
+      },
+      "status": {
+        "correct": 5,
+        "total": 6
+      },
+      "cancel": {
+        "correct": 6,
+        "total": 6
+      },
+      "chat": {
+        "correct": 14,
+        "total": 15
+      }
+    },
+    "errors": [
+      {
+        "text": "有怪过来了，你上",
+        "true": "attack",
+        "pred": "guard",
+        "conf": 0.417,
+        "note": ""
+      },
+      {
+        "text": "站我旁边守着，别让怪靠近",
+        "true": "guard",
+        "pred": "move",
+        "conf": 0.75,
+        "note": ""
+      },
+      {
+        "text": "帮我盯着点，谁过来打谁",
+        "true": "guard",
+        "pred": "look",
+        "conf": 0.491,
+        "note": ""
+      },
+      {
+        "text": "喂猪吃点小麦",
+        "true": "feed",
+        "pred": "eat",
+        "conf": 0.948,
+        "note": ""
+      },
+      {
+        "text": "把菜地收拾收拾种上胡萝卜",
+        "true": "farm",
+        "pred": "collect",
+        "conf": 0.97,
+        "note": ""
+      },
+      {
+        "text": "在房子后面开一片地种菜",
+        "true": "farm",
+        "pred": "place",
+        "conf": 0.901,
+        "note": ""
+      },
+      {
+        "text": "熔些金锭用",
+        "true": "smelt",
+        "pred": "use",
+        "conf": 0.861,
+        "note": ""
+      },
+      {
+        "text": "帮我搭个三层的小楼",
+        "true": "build",
+        "pred": "craft",
+        "conf": 0.62,
+        "note": ""
+      },
+      {
+        "text": "给基地围一圈墙",
+        "true": "build",
+        "pred": "place",
+        "conf": 0.609,
+        "note": ""
+      },
+      {
+        "text": "在这片空地上建个喷泉",
+        "true": "build",
+        "pred": "place",
+        "conf": 0.683,
+        "note": ""
+      },
+      {
+        "text": "把面前这堵墙挖个洞",
+        "true": "break",
+        "pred": "mine",
+        "conf": 0.526,
+        "note": ""
+      },
+      {
+        "text": "把地上的草皮铲了",
+        "true": "break",
+        "pred": "collect",
+        "conf": 0.929,
+        "note": ""
+      },
+      {
+        "text": "把脚下这块地挖了",
+        "true": "break",
+        "pred": "mine",
+        "conf": 0.535,
+        "note": ""
+      },
+      {
+        "text": "把散落的东西收纳一下",
+        "true": "store",
+        "pred": "collect",
+        "conf": 0.715,
+        "note": ""
+      },
+      {
+        "text": "起来吧别坐了",
+        "true": "sit",
+        "pred": "stop",
+        "conf": 0.469,
+        "note": "切换姿态，属坐姿指令"
+      },
+      {
+        "text": "你的装备都还好吗",
+        "true": "status",
+        "pred": "chat",
+        "conf": 0.534,
+        "note": ""
+      },
+      {
+        "text": "这附近哪家火锅好吃",
+        "true": "chat",
+        "pred": "eat",
+        "conf": 0.48,
+        "note": "诱饵：'好吃'→feed"
+      },
+      {
+        "text": "把工作抬放到背包",
+        "true": "store",
+        "pred": "transfer",
+        "conf": 0.83,
+        "note": "错字：工作台→工作抬"
+      },
+      {
+        "text": "把箱子里的铁锭拿出来合成铁镐",
+        "true": "craft",
+        "pred": "chesttake",
+        "conf": 0.648,
+        "note": "复合句：主产出为合成"
+      },
+      {
+        "text": "给我挖点煤，顺便捡捡掉落的",
+        "true": "mine",
+        "pred": "collect",
+        "conf": 0.69,
+        "note": "复合句：挖矿+拾取，标主意图挖矿"
+      },
+      {
+        "text": "别挖了，先把周围的怪清了",
+        "true": "stop",
+        "pred": "attack",
+        "conf": 0.939,
+        "note": "复合句：首先是否定停下"
+      }
+    ]
+  }
+}

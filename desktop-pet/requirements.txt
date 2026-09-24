@@ -1,0 +1,13 @@
+PySide6-Essentials>=6.5
+numpy
+curl_cffi>=0.7
+playwright>=1.40
+edge-tts>=6.1
+pygame>=2.5
+pyttsx3>=2.90
+sounddevice>=0.4.6
+# 语音输入（STT）可选：按住热键说话
+vosk>=0.3.45
+faster-whisper>=1.0
+opencc>=1.1   # whisper/Vosk 识别结果繁转简
+websockets>=12  # 智能女仆联动（M5-b）：WebSocket Server 接收 SmartMaid 模组上报并下发指令

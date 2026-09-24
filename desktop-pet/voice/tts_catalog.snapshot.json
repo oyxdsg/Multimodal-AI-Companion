@@ -1,0 +1,2371 @@
+{
+ "fetched_at": 1789904474.644163,
+ "source": "doc",
+ "doc_url": "https://help.aliyun.com/zh/model-studio/qwen-tts-voice-list",
+ "omni_url": "https://help.aliyun.com/zh/model-studio/omni-voice-list",
+ "models": [
+  "qwen3-tts-flash",
+  "qwen3-tts-instruct-flash",
+  "qwen-tts",
+  "qwen-tts-latest",
+  "qwen3-tts-flash-2025-09-18",
+  "qwen3-tts-flash-2025-11-27",
+  "qwen3-tts-instruct-flash-2026-01-26",
+  "qwen-tts-2025-04-10",
+  "qwen-tts-2025-05-22"
+ ],
+ "live_models": [
+  "qwen-tts-2025-05-22",
+  "qwen3-tts-flash",
+  "qwen3-tts-flash-2025-09-18",
+  "qwen3-tts-flash-2025-11-27",
+  "qwen3-tts-flash-realtime",
+  "qwen3-tts-flash-realtime-2025-09-18",
+  "qwen3-tts-flash-realtime-2025-11-27",
+  "qwen3-tts-instruct-flash",
+  "qwen3-tts-instruct-flash-2026-01-26",
+  "qwen3-tts-instruct-flash-realtime",
+  "qwen3-tts-instruct-flash-realtime-2026-01-22",
+  "qwen3-tts-vc-2026-01-22",
+  "qwen3-tts-vc-realtime-2025-11-27",
+  "qwen3-tts-vc-realtime-2026-01-15",
+  "qwen3-tts-vd-2026-01-26",
+  "qwen3-tts-vd-realtime-2025-12-16",
+  "qwen3-tts-vd-realtime-2026-01-15"
+ ],
+ "voices": [
+  {
+   "id": "Cherry",
+   "name": "芊悦",
+   "desc": "阳光积极、亲切自然小姐姐（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18",
+    "qwen-tts",
+    "qwen-tts-2025-04-10",
+    "qwen-tts-latest",
+    "qwen-tts-2025-05-22"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Serena",
+   "name": "苏瑶",
+   "desc": "温柔小姐姐（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen-tts",
+    "qwen-tts-2025-04-10",
+    "qwen-tts-latest",
+    "qwen-tts-2025-05-22"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Ethan",
+   "name": "晨煦",
+   "desc": "标准普通话，带部分北方口音。阳光、温暖、活力、朝气（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18",
+    "qwen-tts",
+    "qwen-tts-2025-04-10",
+    "qwen-tts-latest",
+    "qwen-tts-2025-05-22"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Chelsie",
+   "name": "千雪",
+   "desc": "二次元虚拟女友（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen-tts",
+    "qwen-tts-2025-04-10",
+    "qwen-tts-latest",
+    "qwen-tts-2025-05-22"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Momo",
+   "name": "茉兔",
+   "desc": "撒娇搞怪，逗你开心（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Vivian",
+   "name": "十三",
+   "desc": "拽拽的、可爱的小暴躁（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Moon",
+   "name": "月白",
+   "desc": "率性帅气的月白（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Maia",
+   "name": "四月",
+   "desc": "知性与温柔的碰撞（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Kai",
+   "name": "凯",
+   "desc": "耳朵的一场SPA（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Nofish",
+   "name": "不吃鱼",
+   "desc": "不会翘舌音的设计师（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Bella",
+   "name": "萌宝",
+   "desc": "喝酒不打醉拳的小萝莉（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Jennifer",
+   "name": "詹妮弗",
+   "desc": "品牌级、电影质感般美语女声（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Ryan",
+   "name": "甜茶",
+   "desc": "节奏拉满，戏感炸裂，真实与张力共舞（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Katerina",
+   "name": "卡捷琳娜",
+   "desc": "御姐音色，韵律回味十足（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Aiden",
+   "name": "艾登",
+   "desc": "精通厨艺的美语大男孩（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Eldric Sage",
+   "name": "沧明子",
+   "desc": "沉稳睿智的老者，沧桑如松却心明如镜（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Mia",
+   "name": "乖小妹",
+   "desc": "温顺如春水，乖巧如初雪（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Mochi",
+   "name": "沙小弥",
+   "desc": "聪明伶俐的小大人，童真未泯却早慧如禅（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Bellona",
+   "name": "燕铮莺",
+   "desc": "声音洪亮，吐字清晰，人物鲜活，听得人热血沸腾；金戈铁马入梦来，字正腔圆间尽显千面人声的江湖（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Vincent",
+   "name": "田叔",
+   "desc": "一口独特的沙哑烟嗓，一开口便道尽了千军万马与江湖豪情（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Bunny",
+   "name": "萌小姬",
+   "desc": "“萌属性”爆棚的小萝莉（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Neil",
+   "name": "阿闻",
+   "desc": "平直的基线语调，字正腔圆的咬字发音，这就是最专业的新闻主持人（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Elias",
+   "name": "墨讲师",
+   "desc": "既保持学科严谨性，又通过叙事技巧将复杂知识转化为可消化的认知模块（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Arthur",
+   "name": "徐大爷",
+   "desc": "被岁月和旱烟浸泡过的质朴嗓音，不疾不徐地摇开了满村的奇闻异事（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Nini",
+   "name": "邻家妹妹",
+   "desc": "糯米糍一样又软又黏的嗓音，那一声声拉长了的“哥哥”，甜得能把人的骨头都叫酥了（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Seren",
+   "name": "小婉",
+   "desc": "温和舒缓的声线，助你更快地进入睡眠，晚安，好梦（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Pip",
+   "name": "顽屁小孩",
+   "desc": "调皮捣蛋却充满童真的他来了，这是你记忆中的小新吗（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Stella",
+   "name": "少女阿月",
+   "desc": "平时是甜到发腻的迷糊少女音，但在喊出“代表月亮消灭你”时，瞬间充满不容置疑的爱与正义（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-instruct-flash",
+    "qwen3-tts-instruct-flash-2026-01-26",
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Bodega",
+   "name": "博德加",
+   "desc": "热情的西班牙大叔（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Sonrisa",
+   "name": "索尼莎",
+   "desc": "热情开朗的拉美大姐（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Alek",
+   "name": "阿列克",
+   "desc": "一开口，是战斗民族的冷，也是毛呢大衣下的暖（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Dolce",
+   "name": "多尔切",
+   "desc": "慵懒的意大利大叔（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Sohee",
+   "name": "素熙",
+   "desc": "温柔开朗，情绪丰富的韩国欧尼（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Ono Anna",
+   "name": "小野杏",
+   "desc": "鬼灵精怪的青梅竹马（女性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Lenn",
+   "name": "莱恩",
+   "desc": "理性是底色，叛逆藏在细节里——穿西装也听后朋克的德国青年（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Emilien",
+   "name": "埃米尔安",
+   "desc": "浪漫的法国大哥哥（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Andre",
+   "name": "安德雷",
+   "desc": "声音磁性，自然舒服、沉稳男生（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Radio Gol",
+   "name": "拉迪奥·戈尔",
+   "desc": "足球诗人Rádio Gol！今天我要用名字为你们解说足球（男性）",
+   "langs": [
+    "中文（普通话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Jada",
+   "name": "上海-阿珍",
+   "desc": "风风火火的沪上阿姐（女性）",
+   "langs": [
+    "中文（上海话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18",
+    "qwen-tts-latest",
+    "qwen-tts-2025-05-22"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Dylan",
+   "name": "北京-晓东",
+   "desc": "北京胡同里长大的少年（男性）",
+   "langs": [
+    "中文（北京话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18",
+    "qwen-tts-latest",
+    "qwen-tts-2025-05-22"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Li",
+   "name": "南京-老李",
+   "desc": "耐心的瑜伽老师（男性）",
+   "langs": [
+    "中文（南京话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Marcus",
+   "name": "陕西-秦川",
+   "desc": "面宽话短，心实声沉——老陕的味道（男性）",
+   "langs": [
+    "中文（陕西话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Roy",
+   "name": "闽南-阿杰",
+   "desc": "诙谐直爽、市井活泼的台湾哥仔形象（男性）",
+   "langs": [
+    "中文（闽南语）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Peter",
+   "name": "天津-李彼得",
+   "desc": "天津相声，专业捧哏（男性）",
+   "langs": [
+    "中文（天津话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Sunny",
+   "name": "四川-晴儿",
+   "desc": "甜到你心里的川妹子（女性）",
+   "langs": [
+    "中文（四川话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18",
+    "qwen-tts-latest",
+    "qwen-tts-2025-05-22"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Eric",
+   "name": "四川-程川",
+   "desc": "一个跳脱市井的四川成都男子（男性）",
+   "langs": [
+    "中文（四川话）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Rocky",
+   "name": "粤语-阿强",
+   "desc": "幽默风趣的阿强，在线陪聊（男性）",
+   "langs": [
+    "中文（粤语）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  },
+  {
+   "id": "Kiki",
+   "name": "粤语-阿清",
+   "desc": "甜美的港妹闺蜜（女性）",
+   "langs": [
+    "中文（粤语）",
+    "英语",
+    "法语",
+    "德语",
+    "俄语",
+    "意大利语",
+    "西班牙语",
+    "葡萄牙语",
+    "日语",
+    "韩语"
+   ],
+   "models": [
+    "qwen3-tts-flash",
+    "qwen3-tts-flash-2025-11-27",
+    "qwen3-tts-flash-2025-09-18"
+   ],
+   "sample": ""
+  }
+ ],
+ "omni": [
+  {
+   "model": "qwen-omni",
+   "default": "",
+   "voices": [
+    {
+     "id": "Ethan",
+     "name": "晨煦",
+     "desc": "标准普通话，带部分北方口音。阳光、温暖、活力、朝气",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Chelsie",
+     "name": "千雪",
+     "desc": "二次元虚拟女友",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    }
+   ]
+  },
+  {
+   "model": "qwen-omni-turbo",
+   "default": "Chelsie",
+   "voices": [
+    {
+     "id": "Cherry",
+     "name": "芊悦",
+     "desc": "阳光积极、亲切自然小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Serena",
+     "name": "苏瑶",
+     "desc": "温柔小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ethan",
+     "name": "晨煦",
+     "desc": "标准普通话，带部分北方口音。阳光、温暖、活力、朝气",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Chelsie",
+     "name": "千雪",
+     "desc": "二次元虚拟女友",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    }
+   ]
+  },
+  {
+   "model": "qwen3-omni-flash",
+   "default": "Cherry",
+   "voices": [
+    {
+     "id": "Cherry",
+     "name": "芊悦",
+     "desc": "阳光积极、亲切自然小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ethan",
+     "name": "晨煦",
+     "desc": "标准普通话，带部分北方口音。阳光、温暖、活力、朝气",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Nofish",
+     "name": "不吃鱼",
+     "desc": "不会翘舌音的设计师",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jennifer",
+     "name": "詹妮弗",
+     "desc": "品牌级、电影质感般美语女声",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ryan",
+     "name": "甜茶",
+     "desc": "节奏拉满，戏感炸裂，真实与张力共舞",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Katerina",
+     "name": "卡捷琳娜",
+     "desc": "御姐音色，韵律回味十足",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Elias",
+     "name": "墨讲师",
+     "desc": "既保持学科严谨性，又通过叙事技巧将复杂知识转化为可消化的认知模块",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jada",
+     "name": "上海-阿珍",
+     "desc": "风风火火的沪上阿姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Dylan",
+     "name": "北京-晓东",
+     "desc": "北京胡同里长大的少年",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sunny",
+     "name": "四川-晴儿",
+     "desc": "甜到你心里的川妹子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Li",
+     "name": "南京-老李",
+     "desc": "耐心的瑜伽老师",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Marcus",
+     "name": "陕西-秦川",
+     "desc": "面宽话短，心实声沉——老陕的味道",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Roy",
+     "name": "闽南-阿杰",
+     "desc": "诙谐直爽、市井活泼的台湾哥仔形象",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Peter",
+     "name": "天津-李彼得",
+     "desc": "天津相声，专业捧哏",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Rocky",
+     "name": "粤语-阿强",
+     "desc": "幽默风趣的阿强，在线陪聊",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Kiki",
+     "name": "粤语-阿清",
+     "desc": "甜美的港妹闺蜜",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Eric",
+     "name": "四川-程川",
+     "desc": "一个跳脱市井的四川成都男子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    }
+   ]
+  },
+  {
+   "model": "qwen3-omni-flash-2025-09-15",
+   "default": "Cherry",
+   "voices": [
+    {
+     "id": "Cherry",
+     "name": "芊悦",
+     "desc": "阳光积极、亲切自然小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ethan",
+     "name": "晨煦",
+     "desc": "标准普通话，带部分北方口音。阳光、温暖、活力、朝气",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Nofish",
+     "name": "不吃鱼",
+     "desc": "不会翘舌音的设计师",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jennifer",
+     "name": "詹妮弗",
+     "desc": "品牌级、电影质感般美语女声",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ryan",
+     "name": "甜茶",
+     "desc": "节奏拉满，戏感炸裂，真实与张力共舞",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Katerina",
+     "name": "卡捷琳娜",
+     "desc": "御姐音色，韵律回味十足",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Elias",
+     "name": "墨讲师",
+     "desc": "既保持学科严谨性，又通过叙事技巧将复杂知识转化为可消化的认知模块",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jada",
+     "name": "上海-阿珍",
+     "desc": "风风火火的沪上阿姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Dylan",
+     "name": "北京-晓东",
+     "desc": "北京胡同里长大的少年",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sunny",
+     "name": "四川-晴儿",
+     "desc": "甜到你心里的川妹子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Li",
+     "name": "南京-老李",
+     "desc": "耐心的瑜伽老师",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Marcus",
+     "name": "陕西-秦川",
+     "desc": "面宽话短，心实声沉——老陕的味道",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Roy",
+     "name": "闽南-阿杰",
+     "desc": "诙谐直爽、市井活泼的台湾哥仔形象",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Peter",
+     "name": "天津-李彼得",
+     "desc": "天津相声，专业捧哏",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Rocky",
+     "name": "粤语-阿强",
+     "desc": "幽默风趣的阿强，在线陪聊",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Kiki",
+     "name": "粤语-阿清",
+     "desc": "甜美的港妹闺蜜",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Eric",
+     "name": "四川-程川",
+     "desc": "一个跳脱市井的四川成都男子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    }
+   ]
+  },
+  {
+   "model": "qwen3-omni-flash-2025-12-01",
+   "default": "Cherry",
+   "voices": [
+    {
+     "id": "Cherry",
+     "name": "芊悦",
+     "desc": "阳光积极、亲切自然小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Serena",
+     "name": "苏瑶",
+     "desc": "温柔小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ethan",
+     "name": "晨煦",
+     "desc": "标准普通话，带部分北方口音。阳光、温暖、活力、朝气",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Chelsie",
+     "name": "千雪",
+     "desc": "二次元虚拟女友",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Momo",
+     "name": "茉兔",
+     "desc": "撒娇搞怪，逗你开心",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Vivian",
+     "name": "十三",
+     "desc": "拽拽的、可爱的小暴躁",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Moon",
+     "name": "月白",
+     "desc": "率性帅气的月白",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Maia",
+     "name": "四月",
+     "desc": "知性与温柔的碰撞",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Kai",
+     "name": "凯",
+     "desc": "耳朵的一场SPA",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Nofish",
+     "name": "不吃鱼",
+     "desc": "不会翘舌音的设计师",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Bella",
+     "name": "萌宝",
+     "desc": "喝酒不打醉拳的小萝莉",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jennifer",
+     "name": "詹妮弗",
+     "desc": "品牌级、电影质感般美语女声",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ryan",
+     "name": "甜茶",
+     "desc": "节奏拉满，戏感炸裂，真实与张力共舞",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Katerina",
+     "name": "卡捷琳娜",
+     "desc": "御姐音色，韵律回味十足",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Aiden",
+     "name": "艾登",
+     "desc": "精通厨艺的美语大男孩",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Eldric Sage",
+     "name": "沧明子",
+     "desc": "沉稳睿智的老者，沧桑如松却心明如镜",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Mia",
+     "name": "乖小妹",
+     "desc": "温顺如春水，乖巧如初雪",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Mochi",
+     "name": "沙小弥",
+     "desc": "聪明伶俐的小大人，童真未泯却早慧如禅",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Bellona",
+     "name": "燕铮莺",
+     "desc": "声音洪亮，吐字清晰，人物鲜活，听得人热血沸腾；金戈铁马入梦来，字正腔圆间尽显千面人声的江湖",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Vincent",
+     "name": "田叔",
+     "desc": "一口独特的沙哑烟嗓，一开口便道尽了千军万马与江湖豪情",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Bunny",
+     "name": "萌小姬",
+     "desc": "“萌属性”爆棚的小萝莉",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Neil",
+     "name": "阿闻",
+     "desc": "平直的基线语调，字正腔圆的咬字发音，这就是最专业的新闻主持人",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Elias",
+     "name": "墨讲师",
+     "desc": "既保持学科严谨性，又通过叙事技巧将复杂知识转化为可消化的认知模块",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Arthur",
+     "name": "徐大爷",
+     "desc": "被岁月和旱烟浸泡过的质朴嗓音，不疾不徐地摇开了满村的奇闻异事",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Nini",
+     "name": "邻家妹妹",
+     "desc": "糯米糍一样又软又黏的嗓音，那一声声拉长了的“哥哥”，甜得能把人的骨头都叫酥了",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ebona",
+     "name": "诡婆婆",
+     "desc": "她的低语像一把生锈的钥匙，缓慢转动你内心最深处的幽暗角落——那里藏着所有你不敢承认的童年阴影与未知恐惧",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Seren",
+     "name": "小婉",
+     "desc": "温和舒缓的声线，助你更快地进入睡眠，晚安，好梦",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Pip",
+     "name": "顽屁小孩",
+     "desc": "调皮捣蛋却充满童真的他来了，这是你记忆中的小新吗",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Stella",
+     "name": "少女阿月",
+     "desc": "平时是甜到发腻的迷糊少女音，但在喊出“代表月亮消灭你”时，瞬间充满不容置疑的爱与正义",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Bodega",
+     "name": "博德加",
+     "desc": "热情的西班牙大叔",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sonrisa",
+     "name": "索尼莎",
+     "desc": "热情开朗的拉美大姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Alek",
+     "name": "阿列克",
+     "desc": "一开口，是战斗民族的冷，也是毛呢大衣下的暖",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Dolce",
+     "name": "多尔切",
+     "desc": "慵懒的意大利大叔",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sohee",
+     "name": "素熙",
+     "desc": "温柔开朗，情绪丰富的韩国欧尼",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ono Anna",
+     "name": "小野杏",
+     "desc": "鬼灵精怪的青梅竹马",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Lenn",
+     "name": "莱恩",
+     "desc": "理性是底色，叛逆藏在细节里——穿西装也听后朋克的德国青年",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Emilien",
+     "name": "埃米尔安",
+     "desc": "浪漫的法国大哥哥",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Andre",
+     "name": "安德雷",
+     "desc": "声音磁性，自然舒服、沉稳男生",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Radio Gol",
+     "name": "拉迪奥·戈尔",
+     "desc": "足球诗人Rádio Gol！今天我要用名字为你们解说足球。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jada",
+     "name": "上海-阿珍",
+     "desc": "风风火火的沪上阿姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Dylan",
+     "name": "北京-晓东",
+     "desc": "北京胡同里长大的少年",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Li",
+     "name": "南京-老李",
+     "desc": "耐心的瑜伽老师",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Marcus",
+     "name": "陕西-秦川",
+     "desc": "面宽话短，心实声沉——老陕的味道",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Roy",
+     "name": "闽南-阿杰",
+     "desc": "诙谐直爽、市井活泼的台湾哥仔形象",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Peter",
+     "name": "天津-李彼得",
+     "desc": "天津相声，专业捧哏",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sunny",
+     "name": "四川-晴儿",
+     "desc": "甜到你心里的川妹子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Eric",
+     "name": "四川-程川",
+     "desc": "一个跳脱市井的四川成都男子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Rocky",
+     "name": "粤语-阿强",
+     "desc": "幽默风趣的阿强，在线陪聊",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Kiki",
+     "name": "粤语-阿清",
+     "desc": "甜美的港妹闺蜜",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    }
+   ]
+  },
+  {
+   "model": "qwen3.5-omni",
+   "default": "Tina",
+   "voices": [
+    {
+     "id": "Tina",
+     "name": "甜甜 Tina",
+     "desc": "我的声音像温热的奶茶，甜甜的、暖暖的，但解决问题可一点都不含糊哦！",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Cindy",
+     "name": "林欣宜 Cindy",
+     "desc": "台湾说话嗲嗲的小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Liora Mira",
+     "name": "清欢 Liora Mira",
+     "desc": "用声音织就烟火人间的温柔",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sunnybobi",
+     "name": "知芝 Sunnybobi",
+     "desc": "大大咧咧的社恐邻家姑娘",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Raymond",
+     "name": "林川野 Raymond",
+     "desc": "声音清亮，爱吃外/卖的宅男",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ethan",
+     "name": "晨煦 Ethan",
+     "desc": "标准普通话，带部分北方口音。阳光 温暖 活力 朝气",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Theo Calm",
+     "name": "予安 Theo Calm",
+     "desc": "在静默处传递理解，在言语间疗愈人心。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Serena",
+     "name": "苏瑶 Serena",
+     "desc": "温柔小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Harvey",
+     "name": "厚 Harvey",
+     "desc": "我的声音来自岁月沉淀——低沉、温和，带着一点咖啡与旧书的气息。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Maia",
+     "name": "四月 Maia",
+     "desc": "知性与温柔的碰撞",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Evan",
+     "name": "江晨 Evan",
+     "desc": "男大学生，年下奶狗",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Qiao",
+     "name": "小乔妹 Qiao",
+     "desc": "超关键！她不是普通可爱，而是'表面甜妹，个性十足'",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Momo",
+     "name": "茉兔 Momo",
+     "desc": "撒娇搞怪，逗你开心",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Wil",
+     "name": "伟伦 Wil",
+     "desc": "在深圳长大的港台腔小哥哥",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Angel",
+     "name": "台普 - 安琪 Angel",
+     "desc": "略带台式口音，她超甜的哦！",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Li Cassian",
+     "name": "东厂 - 李公公 Li Cassian",
+     "desc": "话中三分留白、七分察言观色",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Mia",
+     "name": "温柔生活博主 - 舒然 Mia",
+     "desc": "以细腻声音，传递慢生活美学与日常治愈力量的生活艺术家",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Joyner",
+     "name": "喜剧担当 - 阿逗 Joyner",
+     "desc": "搞笑、夸张、接地气",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Gold",
+     "name": "金爷 Gold",
+     "desc": "西海岸黑人 Rapper",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Katerina",
+     "name": "卡捷琳娜 Katerina",
+     "desc": "御姐音色，韵律回味十足",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ryan",
+     "name": "甜茶 Ryan",
+     "desc": "节奏拉满，戏感炸裂，真实与张力共舞",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jennifer",
+     "name": "詹妮弗 Jennifer",
+     "desc": "品牌级、电影质感般美语女声",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Aiden",
+     "name": "艾登 Aiden",
+     "desc": "精通厨艺的美语大男孩",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Mione",
+     "name": "敏儿 Mione",
+     "desc": "成熟，知性英国邻家妹妹",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sunny",
+     "name": "四川 - 晴儿 Sunny",
+     "desc": "甜到你心里的川妹子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Dylan",
+     "name": "北京 - 晓东 Dylan",
+     "desc": "北京胡同里长大的少年",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Eric",
+     "name": "四川 - 程川 Eric",
+     "desc": "一个跳脱市井的四川成都男子",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Peter",
+     "name": "天津 - 李彼得 Peter",
+     "desc": "天津相声，专业捧哏",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Joseph Chen",
+     "name": "阿樸伯 Joseph Chen",
+     "desc": "我是阿樸伯，本名陳志樸，南洋老華僑。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Marcus",
+     "name": "陕西 - 秦川 Marcus",
+     "desc": "面宽话短，心实声沉——老陕的味道。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Li",
+     "name": "南京 - 老李 Li",
+     "desc": "骂骂咧咧的伯伯",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Kiki",
+     "name": "粤语-阿清",
+     "desc": "甜美的港妹闺蜜",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Rocky",
+     "name": "粤语 - 阿强 Rocky",
+     "desc": "幽默风趣的阿强，在线陪聊",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sohee",
+     "name": "素熙 Sohee",
+     "desc": "温柔开朗，情绪丰富的韩国欧尼",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Lenn",
+     "name": "莱恩 Lenn",
+     "desc": "理性是底色，叛逆藏在细节里——穿西装也听后朋克的德国青年。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ono Anna",
+     "name": "小野杏 Ono Anna",
+     "desc": "鬼灵精怪的青梅竹马",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sonrisa",
+     "name": "索尼莎 Sonrisa",
+     "desc": "热情开朗的拉美大姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Bodega",
+     "name": "博德加 Bodega",
+     "desc": "热情的西班牙大叔",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Emilien",
+     "name": "埃米尔安 Emilien",
+     "desc": "浪漫的法国大哥哥",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Andre",
+     "name": "安德雷 Andre",
+     "desc": "声音磁性，自然舒服、沉稳男生",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Radio Gol",
+     "name": "拉迪奥·戈尔 Radio Gol",
+     "desc": "足球诗人 Rádio Gol！今天我要用名字为你们解说足球。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Alek",
+     "name": "阿列克 Alek",
+     "desc": "一开口，是战斗民族的冷，也是毛呢大衣下的暖",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Rizky",
+     "name": "阿力 Rizky",
+     "desc": "印尼的青年小伙，声线个性",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Roya",
+     "name": "萝雅 Roya",
+     "desc": "热爱运动的女孩，拥有一颗自由的心。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Arda",
+     "name": "阿尔达 Arda",
+     "desc": "不高亢，也不低沉，干净利落中带着温润的气质",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Hana",
+     "name": "阿幸 Hana",
+     "desc": "爱狗狗的越南成熟姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Dolce",
+     "name": "多尔切 Dolce",
+     "desc": "慵懒的意大利大叔",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Jakub",
+     "name": "雅克 Jakub",
+     "desc": "波兰小镇文艺青年，声线磁性性感",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Griet",
+     "name": "海娜 Griet",
+     "desc": "荷兰成熟又文艺的女性",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Marina",
+     "name": "玛丽娜 Marina",
+     "desc": "一个在多元文化城市中长大的女孩。",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Siiri",
+     "name": "西芮 Siiri",
+     "desc": "内敛温柔，语速舒缓如湖面微澜",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Ingrid",
+     "name": "林恩 Ingrid",
+     "desc": "挪威乡村姑娘",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Sigga",
+     "name": "海娜 Sigga",
+     "desc": "冰岛小镇的知性女青年",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Bea",
+     "name": "雅娜 Bea",
+     "desc": "爱喝咖啡的菲律宾甜甜小姐姐",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    },
+    {
+     "id": "Chloe",
+     "name": "思怡 Chloe",
+     "desc": "马来西亚白领女生",
+     "langs": [],
+     "models": [],
+     "sample": ""
+    }
+   ]
+  }
+ ]
+}

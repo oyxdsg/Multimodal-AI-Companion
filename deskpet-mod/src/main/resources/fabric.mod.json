@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "deskpet-mod",
+  "version": "${version}",
+  "name": "DeskPet Mod",
+  "description": "为桌面宠物（DeskPet）提供结构化游戏事件：监听玩家行为并聚合输出到独立目录 deskpet/",
+  "authors": ["DeskPet"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.deskpet.mod.DeskpetMod"],
+    "client": ["com.deskpet.mod.DeskpetModClient"]
+  },
+  "mixins": ["deskpet-mod.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "~26.2",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

@@ -1,0 +1,44 @@
+# 第三方组件与数据声明（NOTICE）
+
+本项目（Desktop Pet）主体代码以 MIT 许可发布（见 `LICENSE`）。
+**插件代码**随主仓库一并发布；**插件数据、美术素材、逆向实现的风险**见下方各节。
+
+## 设计与图标
+
+- **Lucide 图标**（ISC License）：`core/icons.py` 内嵌的线条图标。
+- **Ant Design 设计规范**（MIT）：全局 QSS 主题令牌（颜色 / 圆角 / 间距）。
+- **WorkBuddy 视觉语言**：设置对话框外观仅作**取色参考**，未包含其任何代码或资源。
+
+## 游戏联动
+
+- **Minecraft 中文 Wiki 内容**（CC BY-NC-SA）：本地知识库数据（`wiki_data/mcwiki.db`
+  与 curated 词条）属于 **wiki-local 插件**，**不随主仓库发布**；可由
+  `plugins/wiki-local/wiki_build.py` 重建。
+- **车万女仆（Touhou Little Maid）**：皮肤/模型资源参考自其开源仓库
+  （MIT / CC BY-NC-SA，见其仓库许可）。本仓库不包含其资源文件。
+
+## 美术素材
+
+- **"大肥鱼"待机形象**：`assets/_static/idle.png`，作者自有并**完全开源**，随主仓库发布。
+- **完整动画帧**（`assets/<动作>/`）与绿幕素材源**不随主仓库发布**，由用户自备或用
+  `deskpet-tools/` 从自己的视频制作。
+
+## 可选插件
+
+> **插件代码随主仓库发布，可自由选用**；下表中标注"不随包"的**数据/素材**需使用者自建或自备。
+
+- **deepseek-web 插件**（代码随仓库）：通过 `chat.deepseek.com` 的**非官方内部接口**访问 DeepSeek
+  网页版。它**不是**官方 SDK、与 DeepSeek 官方无关；使用者需自行确认并遵守服务方的用户协议，
+  账号与可用性风险自担；网页端改版可能导致失配。**推荐优先使用官方 API 或千问**。
+- **wiki-local 插件**（代码随仓库，**数据不随包**）：其知识库数据派生自 Minecraft 中文 Wiki
+  （CC BY-NC-SA），**不随主仓库分发**，需用 `plugins/wiki-local/wiki_build.py` 自行构建。
+- **agentic-rag 插件**（代码随仓库，**数据不随包**）：`rag/` 下的检索 / 建库代码迁自本项目
+  自研的 **RAG 方案（`mcwiki-agentic-rag`）**，同一作者、MIT；向量库 / BM25 索引 / 切分数据
+  （约 345MB，含 Wiki 派生的 CC BY-NC-SA 内容）**不随主仓库分发**，需按插件 README 自行构建。
+  依赖 `faiss` / `sentence-transformers`（含 torch）由使用者自行安装。
+- **素材包 / 角色包**（不随包）：按各自许可单独发布。
+
+## Python 依赖
+
+各依赖遵循其自身许可（PySide6/LGPL、curl_cffi/MIT、numpy/BSD、playwright/Apache-2.0、
+wasmtime/Apache-2.0 等），见 `requirements.txt` / `requirements-web.txt`。

@@ -1,0 +1,10 @@
+# DeepSeek 网页版插件（deskpet-plugin-deepseek-web）的可选依赖
+#
+# 装了这个插件才需要；不用网页版后端（走官方 API / 千问 / 自定义）则无需安装。
+#   pip install -r requirements-web.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+#
+# 说明：
+# - wasmtime 仅网页版 PoW（工作量证明）用；官方 API 等不需要
+# - curl_cffi / playwright 已在本体 requirements.txt（被官方协议 / 修仙桥接共用），此处不重复
+
+wasmtime>=20

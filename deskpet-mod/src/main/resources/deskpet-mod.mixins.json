@@ -1,0 +1,10 @@
+{
+  "required": false,
+  "minVersion": "0.8",
+  "package": "com.deskpet.mod.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": ["PlayerAdvancementsMixin", "ClientAdvancementsMixin", "ItemPickupMixin", "CraftingMenuMixin", "BlockItemPlaceMixin", "ArmorStandItemMixin", "HangingEntityItemMixin", "MinecartItemMixin", "BoatItemMixin", "BucketItemMixin"],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

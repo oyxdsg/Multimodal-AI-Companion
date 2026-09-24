@@ -1,0 +1,11 @@
+{
+  "id": "agentic-rag",
+  "name": "本地 Wiki 知识库 · 多路召回（向量 + BM25 + RRF + 重排）",
+  "version": "1.0.0",
+  "api_version": 1,
+  "type": ["wiki-knowledge", "knowledge-qa"],
+  "entry": "plugin:register",
+  "requires": ["numpy", "jieba", "sentence-transformers", "faiss-cpu"],
+  "priority": 20,
+  "description": "重型知识插件：向量 + BM25 多路召回 → RRF 融合 → 规则重排。既做游戏事件注入，也做用户提问检索。需自建索引（约 345MB）。"
+}

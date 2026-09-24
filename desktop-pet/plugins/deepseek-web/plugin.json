@@ -1,0 +1,11 @@
+{
+  "id": "deepseek-web",
+  "name": "DeepSeek 网页版后端",
+  "version": "1.0.0",
+  "api_version": 1,
+  "type": ["ai-provider"],
+  "entry": "plugin:register",
+  "requires": ["wasmtime", "curl_cffi", "playwright"],
+  "priority": 10,
+  "description": "chat.deepseek.com 网页内部接口（PoW + 会话记忆 + 识图）。不装则用官方 API / 千问 / 自定义端点。"
+}

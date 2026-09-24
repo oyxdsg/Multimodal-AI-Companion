@@ -1,0 +1,12 @@
+{
+  "id": "example",
+  "name": "示例插件（知识注入）",
+  "version": "1.0.0",
+  "api_version": 1,
+  "type": ["wiki-knowledge"],
+  "entry": "plugin:register",
+  "requires": [],
+  "priority": 0,
+  "selectable": true,
+  "description": "最小可运行插件：注册一个知识实现（此处为演示，返回固定提示）"
+}

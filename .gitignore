@@ -1,0 +1,103 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- 运行日志 ----
+logs/
+*.log
+
+# ---- 缓存 / 生成物 ----
+desktop-pet/.cache.pkl
+desktop-pet/voice_cache/
+# 实际路径是 voice/voice_cache/（旧模式少了中间一层，导致 28 个 wav 曾被误跟踪）
+desktop-pet/voice/voice_cache/
+desktop-pet/wiki_data/
+desktop-pet/games/
+desktop-pet/models/
+
+# ---- Gradle / Java ----
+.gradle/
+deskpet-mod/build/
+*.class
+target/
+
+# ---- Python 虚拟环境 ----
+.venv/
+venv/
+env/
+
+# ---- IDE / 编辑器 ----
+.idea/
+.vscode/
+*.iml
+
+# ---- 本地 TTS 服务（独立部署，不纳入仓库）----
+moss-tts-service/
+
+# ---- 系统文件 ----
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ---- 生成缓存（自动生成，可随时删除）----
+desktop-pet/assets/.base_frames/
+desktop-pet/assets/.cache.pkl
+desktop-pet/skins/.skincache/
+# 设置界面离屏预览图（tools/preview_settings_dialog.py 生成，可重跑）
+desktop-pet/png/
+# 女仆联调调试注入口（开发用，不入库）
+desktop-pet/.maid_command.json
+# 聊天调试注入口（全链路测试用，不入库）
+desktop-pet/.chat_input.json
+desktop-pet/.maid_state.json
+desktop-pet/logs/maid_snapshot.json
+# 全链路测试的证据产物（可重跑生成，不入库）
+desktop-pet/logs/chain_test/
+# API 后端专项测试输出（tools/test_api_game.py 生成，可重跑）
+desktop-pet/_game_*.txt
+# 代码备份快照（编辑前自动备份，不入库）
+*.bak_*
+# 训练语料：由 python -m nlu.train 按固定种子确定性重生成，不入库
+desktop-pet/nlu/data/dataset.jsonl
+# NLU 训练过程产物 / 历史备份 / 评测输出（可重生成，不入库）
+desktop-pet/nlu/data/model.v*.npz
+desktop-pet/nlu/data/vocab.v*.json
+desktop-pet/nlu/data/report.v*.json
+# NLU 手工评估/训练集（防止手工答案集混入训练语料造成数据泄漏）
+desktop-pet/nlu/data/manual_eval_result.json
+desktop-pet/nlu/data/manual_test.json
+desktop-pet/nlu/data/manual_train.jsonl
+desktop-pet/nlu/data/distill_all.jsonl
+desktop-pet/nlu/data/distill_data*.jsonl
+# Wiki 精炼训练数据（build_data.py 生成，可重生成，不入库）
+desktop-pet/nlu/wiki_refine/data/seed.jsonl
+desktop-pet/nlu/wiki_refine/data/seed.preview.txt
+
+# ---- 本地工作数据 / 内部记录（不纳入仓库）----
+.workbuddy/
+
+# ---- 插件（单仓库策略：代码入库，数据不入库）----
+# 插件代码随主仓库发布；数据 / 虚拟环境 / 缓存一律不入库（体积与许可原因）。
+desktop-pet/plugins/**/data/
+desktop-pet/plugins/**/.venv/
+desktop-pet/plugins/**/voice_cache/
+
+# ---- 内部产物 / 隐私文档（不入库，仅本地保留）----
+desktop-pet/ai_dataset.json
+desktop-pet/ai_dataset.txt
+desktop-pet/color_check_after.png
+docs/WORKBUDDY_数据上传核查.md
+# 本机 Minecraft 实例路径（诊断工具用，只在本机生效）
+deskpet-tools/诊断工具/mc_path.txt
+
+# ---- 美术素材（可选内容，不随主仓库发布；仅保留静态图与说明）----
+desktop-pet/assets/*
+!desktop-pet/assets/_static/
+!desktop-pet/assets/_static/**
+!desktop-pet/assets/README.md
+# 绿幕素材源（离线加工输入，不参与运行）
+素材源/

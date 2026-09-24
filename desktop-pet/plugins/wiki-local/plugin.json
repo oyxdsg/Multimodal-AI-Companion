@@ -1,0 +1,11 @@
+{
+  "id": "wiki-local",
+  "name": "本地 Wiki 知识库（检索 + 提炼）",
+  "version": "1.0.0",
+  "api_version": 1,
+  "type": ["wiki-knowledge"],
+  "entry": "plugin:register",
+  "requires": ["numpy"],
+  "priority": 10,
+  "description": "本地 Minecraft 中文 Wiki：实体提取 + 检索 + 提炼注入。不装则大模型凭自身知识作答。"
+}
