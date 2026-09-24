@@ -4,6 +4,13 @@
 1. **游戏事件采集**：监听玩家行为 → 每 20 秒聚合成分级窗口写入 `.minecraft/deskpet/`，供桌宠联动 AI 互动。
 2. **建筑识别系统**：记忆玩家放置的方块 → 三维结构分析 → 本地规则引擎分类 → 输出建筑感知包，供桌宠理解玩家建造了什么。
 
+> 🔗 **别搞混了，这是两个模组**：
+> - **本仓库（deskpet-mod）** 只做「事件采集 + 建筑识别」，给桌宠提供游戏感知，不含女仆。
+> - 想要**游戏里会干活、会聊天的 AI 女仆**（跟随/战斗/挖矿建造/自然语言指令）→ 那是
+>   [**SmartMaid**](https://github.com/oyxdsg/SmartMaid)（独立仓库，Minecraft 26.2 Fabric）。
+> - 桌宠本体 → [**Multimodal-AI-Companion**](https://github.com/oyxdsg/Multimodal-AI-Companion)；
+>   动画素材 → [**Multimodal-AI-Companion-Assets**](https://github.com/oyxdsg/Multimodal-AI-Companion-Assets)。
+
 ## 一、游戏事件采集
 
 ### 功能
