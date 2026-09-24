@@ -6,7 +6,7 @@
 
 | 文件 | 渠道 | 状态 |
 |---|---|---|
-| [`modrinth-smartmaid.md`](modrinth-smartmaid.md) | Modrinth | ✅ 物料齐，等你的 token |
+| [`modrinth-smartmaid.md`](modrinth-smartmaid.md) | Modrinth | ⏳ token 已就绪，**卡在账号邮箱验证**（见下） |
 | [`modrinth-description-smartmaid.md`](modrinth-description-smartmaid.md) | Modrinth 英文正文 | ✅（脚本直接读取） |
 | [`mcmod-smartmaid.md`](mcmod-smartmaid.md) | MC 百科 mcmod.cn | ✅ 可投递 |
 | [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) | 苦力怕论坛 | ✅ 可投递（截图已齐） |
@@ -14,6 +14,19 @@
 
 辅助脚本：[`publish_modrinth.py`](publish_modrinth.py)（`--project smartmaid` 已是默认；
 deskpet-mod 配置保留，随时可发）。
+
+### Modrinth API 两个实测坑（2026-09-24）
+
+1. **`POST /project` 必须带 `"initial_versions": []`** —— 该字段官方文档标注 Deprecated
+   （「请改为先建项目再上传版本」），但 schema **仍要求它存在**，漏了会直接 400：
+   `missing field 'initial_versions'`。脚本已传空数组，版本照旧走 `POST /version`。
+2. **账号必须先验证邮箱**，否则 `POST /project` 返回
+   `401 unauthorized / "Please verify your email before publishing!"`
+   —— 注意这条**不是 token 无效**（token 无效会报 `Invalid Authentication Credentials`）。
+   处理：<https://modrinth.com/settings/account> 点重新发送验证邮件，或查收 Modrinth 注册邮件；
+   验证后原命令直接重跑即可。
+   （附带事实：`GET /user` 用只勾了 PROJECT_CREATE/VERSION_CREATE 的 token 会 401，
+   因为读用户信息需要 `USER_READ` 权限位 —— 别把它误判成 token 坏了。）
 
 ---
 
@@ -34,7 +47,7 @@ deskpet-mod 配置保留，随时可发）。
 
 | 渠道 | 你要做的事 |
 |---|---|
-| Modrinth | <https://modrinth.com/settings/pats> 生成 token（勾 `PROJECT_CREATE`+`VERSION_CREATE`）→ `$env:MODRINTH_TOKEN="mrp_xxx"`，剩下的我来跑脚本 |
+| Modrinth | ① **先验证邮箱**（<https://modrinth.com/settings/account>，否则 API 拒绝发布）② 确认 token 仍在（<https://modrinth.com/settings/pats>，勾 `PROJECT_CREATE`+`VERSION_CREATE`）→ 告诉我，剩下的我来跑脚本 |
 | mcmod.cn | 登录 → <https://www.mcmod.cn/class/add> → 照 [`mcmod-smartmaid.md`](mcmod-smartmaid.md) 粘贴（要填 2 位验证码） |
 | 苦力怕论坛 | 登录 → 按版块模板发帖，照 [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) 粘贴 + 传 3 张截图 + jar 附件 |
 | CurseForge | 作者后台建项目 → 照 [`curseforge-smartmaid.md`](curseforge-smartmaid.md)；建好给我 token 我用 API 传文件 |

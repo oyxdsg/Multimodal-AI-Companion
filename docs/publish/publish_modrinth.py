@@ -200,6 +200,9 @@ def do_create(args, token: str, cfg: dict) -> int:
         "issues_url": cfg["issues_url"],
         "project_type": "mod",
         "is_draft": True,   # Modrinth 官方建议恒为 true：先草稿，确认后 submit
+        # 该字段官方标注 Deprecated，但 schema 仍要求存在 → 传空数组，
+        # 版本另行用 POST /version 上传（见 do_version_upload）。
+        "initial_versions": [],
     }
     log("[1/3] 创建项目（draft）…… %s" % cfg["slug"])
     st, proj = send_form("POST", "/project", token,
@@ -331,8 +334,14 @@ def main() -> int:
         return {"create": do_create, "version": do_version,
                 "submit": do_submit, "status": do_status}[args.command](args, args.token, cfg)
     except RuntimeError as e:
-        log("失败：%s" % e)
-        return finish({"error": str(e)}, 1)
+        msg = str(e)
+        if "verify your email" in msg:
+            log("失败：Modrinth 要求**先验证邮箱**才能发布（token 本身有效）。")
+            log("  请到 https://modrinth.com/settings/account 点「Resend verification email」，")
+            log("  或查收注册邮箱里 Modrinth 的验证邮件；验证后重跑本命令即可。")
+        else:
+            log("失败：%s" % e)
+        return finish({"error": msg}, 1)
 
 
 if __name__ == "__main__":
