@@ -19,10 +19,14 @@ assets/
 
 三条任选：
 
-1. **自己生成**：用 [`../../deskpet-tools/`](../../deskpet-tools/) 把绿幕视频转成动作帧，或按
+1. **官方动画资源包（最省事）**：到配套仓库
+   [`Multimodal-AI-Companion-Assets`](https://github.com/oyxdsg/Multimodal-AI-Companion-Assets)
+   的 Releases 下载 `deskpet-animation-assets-v1.0.0.zip`（247MB / 17 动作 / 1663 帧），
+   解压到**本目录**即可（zip 内就是 `<动作>/frame_0000.png` 这层结构）。也可以只解压需要的几个动作
+   —— 程序按动作 key 缺失回退静态图，不会崩。
+2. **自己生成**：用 [`../../deskpet-tools/`](../../deskpet-tools/) 把绿幕视频转成动作帧，或按
    下面规范自备 PNG 帧序列。
-2. **角色包**：用工具打包成角色包放入 `../skins/<角色id>/`，在设置 →「皮肤」切换。
-3. **官方素材包**：单独发布的素材包，解压到本目录即可。
+3. **角色包**：用工具打包成角色包放入 `../skins/<角色id>/`，在设置 →「皮肤」切换。
 
 ## 动作目录规范
 

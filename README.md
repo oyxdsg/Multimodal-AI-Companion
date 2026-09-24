@@ -69,7 +69,7 @@ python desktop-pet/main.py --smoke    # 只启动自检，不开界面
 
 | 内容 | 体积 | 原因 | 怎么获得 |
 |---|---:|---|---|
-| 完整动画素材（1664 帧） | ~248MB | 体积 | 自备 / 素材包 |
+| 完整动画素材（1663 帧） | ~248MB | 体积 | 配套 [**动画资源仓库**](https://github.com/oyxdsg/Multimodal-AI-Companion-Assets) 的 Release 附件，解压到 `desktop-pet/assets/` |
 | 绿幕素材源 | ~87MB | 离线加工输入 | 用 `deskpet-tools/` 自己转 |
 | Minecraft Wiki 数据库 | ~250MB | 派生数据（Wiki 为 CC BY-NC-SA，与 MIT 不兼容） | 用 `wiki-local` 插件自带脚本重建 |
 | RAG 向量/BM25 索引 | ~345MB | 体积 + 重依赖（faiss / torch） | 用 `agentic-rag` 插件自带脚本重建 |
