@@ -38,6 +38,18 @@ python desktop-pet/main.py --doctor   # 查看插件与扩展点状态
 python desktop-pet/main.py --smoke    # 只启动自检，不开界面
 ```
 
+## 联动效果
+
+和游戏里的智能女仆联动：女仆上线后可在聊天栏对话、按住 `Y` 语音说话，AI 回复以多行气泡冒在女仆头顶；
+也可以让桌宠隐退、只当 AI 后端。
+
+<div align="center">
+  <img src="docs/images/maid-ingame.png" width="620" alt="Minecraft 游戏内的智能女仆">
+</div>
+
+> 配套模组：[`deskpet-mod/`](deskpet-mod/README.md)（事件采集 + 建筑识别）。
+> 女仆本体是姊妹项目 SmartMaid（独立仓库）。
+
 ## 插件（可选，不装也能跑）
 
 宿主为每个扩展点都提供**内置最小实现**：拔掉所有插件，宠物依然能启动、聊天、进游戏模式。
