@@ -6,7 +6,7 @@
 
 | 文件 | 渠道 | 状态 |
 |---|---|---|
-| [`modrinth-smartmaid.md`](modrinth-smartmaid.md) | Modrinth | ⏳ token 已就绪，**卡在账号邮箱验证**（见下） |
+| [`modrinth-smartmaid.md`](modrinth-smartmaid.md) | Modrinth | 🟡 **草稿已建**（id `WZi1HspD`；`0.1.0` 已上传）—— 待补 gallery + 提审，需带**写权限**的新 token |
 | [`modrinth-description-smartmaid.md`](modrinth-description-smartmaid.md) | Modrinth 英文正文 | ✅（脚本直接读取） |
 | [`mcmod-smartmaid.md`](mcmod-smartmaid.md) | MC 百科 mcmod.cn | ✅ 可投递 |
 | [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) | 苦力怕论坛 | ✅ 可投递（截图已齐） |
@@ -15,7 +15,7 @@
 辅助脚本：[`publish_modrinth.py`](publish_modrinth.py)（`--project smartmaid` 已是默认；
 deskpet-mod 配置保留，随时可发）。
 
-### Modrinth API 两个实测坑（2026-09-24）
+### Modrinth API 实测坑（2026-09-24）
 
 1. **`POST /project` 必须带 `"initial_versions": []`** —— 该字段官方文档标注 Deprecated
    （「请改为先建项目再上传版本」），但 schema **仍要求它存在**，漏了会直接 400：
@@ -25,8 +25,24 @@ deskpet-mod 配置保留，随时可发）。
    —— 注意这条**不是 token 无效**（token 无效会报 `Invalid Authentication Credentials`）。
    处理：<https://modrinth.com/settings/account> 点重新发送验证邮件，或查收 Modrinth 注册邮件；
    验证后原命令直接重跑即可。
-   （附带事实：`GET /user` 用只勾了 PROJECT_CREATE/VERSION_CREATE 的 token 会 401，
-   因为读用户信息需要 `USER_READ` 权限位 —— 别把它误判成 token 坏了。）
+3. **PAT 的权限位要按动作分开勾**（`PROJECT_CREATE`/`VERSION_CREATE` 只能建、不能改）：
+
+   | 动作 | 需要的权限位 |
+   |---|---|
+   | `POST /project`（建项目） | `PROJECT_CREATE` |
+   | `POST /version`（传版本） | `VERSION_CREATE` |
+   | `PATCH /project/<id>`（**提审**、改项目元数据、传 gallery） | `PROJECT_WRITE` |
+   | `PATCH /version/<id>`（改版本元数据，如 `environment`） | `VERSION_WRITE` |
+   | `GET /project/<slug|id>`（**读自己草稿**） | `PROJECT_READ` |
+
+   实测症状：只勾 CREATE 两个时，`PATCH /project` 返回 `401 Invalid Authentication Credentials`，
+   而 `GET` 草稿返回 **404**（草稿对无权限者就是 404，不是 403）。
+   **推荐一次勾齐**：`PROJECT_CREATE` · `PROJECT_READ` · `PROJECT_WRITE` ·
+   `VERSION_CREATE` · `VERSION_READ` · `VERSION_WRITE`。
+   附带事实：`GET /user` 还需 `USER_READ`，否则同样 401 —— 别据此误判 token 坏了。
+4. **草稿项目用 slug 查不到**（`GET /project/<slug>` 对 draft 一律 404，即使 owner），
+   所以 `create` 成功后会把 `id` 记进 `publish_modrinth_state.json`（已 gitignore），
+   后续 `gallery` / `submit` / `status` 靠它定位，也可用 `--project-id` 显式指定。
 
 ---
 
@@ -47,7 +63,7 @@ deskpet-mod 配置保留，随时可发）。
 
 | 渠道 | 你要做的事 |
 |---|---|
-| Modrinth | ① **先验证邮箱**（<https://modrinth.com/settings/account>，否则 API 拒绝发布）② 确认 token 仍在（<https://modrinth.com/settings/pats>，勾 `PROJECT_CREATE`+`VERSION_CREATE`）→ 告诉我，剩下的我来跑脚本 |
+| Modrinth | ✅ 邮箱已验证、项目已建。**要收尾还差一个带写权限的 token**：<https://modrinth.com/settings/pats> 新建 PAT，勾 `PROJECT_CREATE` · `PROJECT_READ` · `PROJECT_WRITE` · `VERSION_CREATE` · `VERSION_READ` · `VERSION_WRITE` → 剩下的我来跑（补 gallery → 修 environment → `submit`） |
 | mcmod.cn | 登录 → <https://www.mcmod.cn/class/add> → 照 [`mcmod-smartmaid.md`](mcmod-smartmaid.md) 粘贴（要填 2 位验证码） |
 | 苦力怕论坛 | 登录 → 按版块模板发帖，照 [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) 粘贴 + 传 3 张截图 + jar 附件 |
 | CurseForge | 作者后台建项目 → 照 [`curseforge-smartmaid.md`](curseforge-smartmaid.md)；建好给我 token 我用 API 传文件 |

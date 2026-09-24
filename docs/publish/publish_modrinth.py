@@ -3,8 +3,9 @@
 """把模组发布到 Modrinth（建项目 / 传版本 / 提审）。支持两个项目：
 
 用法（token 从环境变量 MODRINTH_TOKEN 读取，或在 --token 传入）：
-  python docs/publish/publish_modrinth.py create                     # 默认 smartmaid：建 draft + 传 0.1.0
+  python docs/publish/publish_modrinth.py create                     # 默认 smartmaid：建 draft + 传 0.1.0 + 传截图
   python docs/publish/publish_modrinth.py create --project deskpet-mod
+  python docs/publish/publish_modrinth.py gallery                    # 只补传 gallery 截图
   python docs/publish/publish_modrinth.py submit                     # draft -> 提交审核/公开
   python docs/publish/publish_modrinth.py version --jar path/to.jar --number 0.1.1
   python docs/publish/publish_modrinth.py status
@@ -28,6 +29,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))            # docs/publish -> 仓库根
 MAID = r"C:\Users\86187\Desktop\女仆项目开发"
 RESULT_FILE = os.path.join(HERE, "publish_modrinth_result.json")
+# 已建项目的 id 台账：**草稿项目用 slug 查不到**（GET /project/<slug> 对 draft 一律 404），
+# 所以建完必须记下 id，后续 gallery / submit / status 才有办法定位。
+STATE_FILE = os.path.join(HERE, "publish_modrinth_state.json")
 FALLBACK_PROXY = "http://127.0.0.1:7890"
 
 PROJECTS = {
@@ -50,6 +54,16 @@ PROJECTS = {
         "title_number": "Smart Maid 0.1.0",
         "changelog": ("First release: rule-driven AI maid for Minecraft 26.2 (Fabric) — "
                       "combat, jump pathfinding, chores, 41-slot inventory, wooden settings menu."),
+        # fabric.mod.json 的 environment 是 "*"（main + client 入口点都有）→ 双端都要装
+        "environment": "client_and_server",
+        "gallery": [
+            (os.path.join(MAID, "SmartMaid", "docs", "images", "smartmaid-inventory-gui.png"),
+             "41-slot inventory", True),
+            (os.path.join(MAID, "SmartMaid", "docs", "images", "smartmaid-settings-panel.png"),
+             "Right-click menu — wooden GUI, no commands needed", False),
+            (os.path.join(MAID, "SmartMaid", "docs", "images", "smartmaid-chat-bubble.png"),
+             "In-game chat bubble (works with the optional DeskPet companion)", False),
+        ],
     },
     # 桌宠联动模组（暂缓发布，物料保留）
     "deskpet-mod": {
@@ -70,6 +84,8 @@ PROJECTS = {
         "title_number": "DeskPet Mod 2.0.0",
         "changelog": ("First release: game event collection + local building recognition "
                       "for Minecraft 26.2 (Fabric)."),
+        "environment": "client_and_server",
+        "gallery": [],
     },
 }
 DEFAULT_PROJECT = "smartmaid"
@@ -81,6 +97,40 @@ def load_body(path: str) -> str:
     t = open(path, "r", encoding="utf-8").read()
     m = re.search(r"^```(?:markdown|md)\s*\n(.*?)\n```\s*$", t, re.S | re.M)
     return (m.group(1) if m else t).strip() + "\n"
+
+
+def save_state(project: str, pid: str, slug: str) -> None:
+    st = {}
+    if os.path.isfile(STATE_FILE):
+        try:
+            with open(STATE_FILE, encoding="utf-8") as f:
+                st = json.load(f)
+        except (OSError, ValueError):
+            st = {}
+    st[project] = {"id": pid, "slug": slug}
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(st, f, ensure_ascii=False, indent=2)
+
+
+def load_state(project: str) -> dict:
+    if not os.path.isfile(STATE_FILE):
+        return {}
+    try:
+        with open(STATE_FILE, encoding="utf-8") as f:
+            return json.load(f).get(project, {}) or {}
+    except (OSError, ValueError):
+        return {}
+
+
+def resolve_project(token: str, cfg: dict, proxy, explicit_id: str | None = None):
+    """定位项目。草稿项目 slug 查不到 → 退回台账里记的 id；也可用 --project-id 显式指定。"""
+    pid = explicit_id or load_state(cfg["slug"]).get("id")
+    if pid:
+        proj = get_project(token, pid, proxy)
+        if proj:
+            return proj
+        log("    台账里的 id=%s 查不到（token 是否有 PROJECT_READ 权限？）" % pid)
+    return get_project(token, cfg["slug"], proxy)
 
 
 def log(msg: str) -> None:
@@ -179,8 +229,8 @@ def project_id_of(token: str, slug: str, proxy) -> str | None:
 
 def do_create(args, token: str, cfg: dict) -> int:
     proxy = args.proxy
-    if get_project(token, cfg["slug"], proxy):
-        log("项目 %s 已存在，改用 `version` / `submit` 子命令。" % cfg["slug"])
+    if resolve_project(token, cfg, proxy, args.project_id):
+        log("项目 %s 已存在，改用 `version` / `gallery` / `submit` 子命令。" % cfg["slug"])
         return finish({"error": "project exists", "slug": cfg["slug"]}, 1)
 
     body = load_body(args.body)
@@ -204,23 +254,28 @@ def do_create(args, token: str, cfg: dict) -> int:
         # 版本另行用 POST /version 上传（见 do_version_upload）。
         "initial_versions": [],
     }
-    log("[1/3] 创建项目（draft）…… %s" % cfg["slug"])
+    log("[1/4] 创建项目（draft）…… %s" % cfg["slug"])
     st, proj = send_form("POST", "/project", token,
                          {"data": json.dumps(project)},
                          {"icon": (os.path.basename(args.icon), icon_bytes, "image/png")},
                          proxy)
     pid = proj["id"]
+    save_state(args.project, pid, proj.get("slug") or cfg["slug"])
     log("    项目 id=%s  slug=%s  status=%s" % (pid, proj.get("slug"), proj.get("status")))
 
-    log("[2/3] 上传版本 %s ……" % args.number)
+    log("[2/4] 上传版本 %s ……" % args.number)
     ver = do_version_upload(token, pid, args, cfg, proxy)
     log("    版本 id=%s" % ver["id"])
 
-    log("[3/3] 完成。草稿地址（浏览器登录后可见）:")
+    log("[3/4] 上传 gallery 截图 ……")
+    gal = do_gallery(token, pid, cfg, proxy)
+    log("    共 %d 张" % len(gal))
+
+    log("[4/4] 完成。草稿地址（浏览器登录后可见）:")
     log("    https://modrinth.com/project/%s" % cfg["slug"])
     log("    确认页面没问题后运行: python %s submit --project %s"
         % (os.path.basename(__file__), args.project))
-    return finish({"project": proj, "version": ver}, 0)
+    return finish({"project": proj, "version": ver, "gallery": gal}, 0)
 
 
 def do_version_upload(token: str, project_id: str, args, cfg: dict, proxy) -> dict:
@@ -245,6 +300,8 @@ def do_version_upload(token: str, project_id: str, args, cfg: dict, proxy) -> di
         "project_id": project_id,
         "file_parts": ["file"],
         "primary_file": "file",
+        # 不传这个字段端侧会显示 unknown（页面上的「客户端/服务端」标签与筛选依赖它）
+        "environment": cfg.get("environment", "client_and_server"),
     }
     st, ver = send_form("POST", "/version", token,
                         {"data": json.dumps(data)},
@@ -254,22 +311,53 @@ def do_version_upload(token: str, project_id: str, args, cfg: dict, proxy) -> di
     return ver
 
 
+def do_gallery(token: str, project_id: str, cfg: dict, proxy) -> list:
+    """上传 gallery 截图（POST /project/<id>/gallery，一次一张，multipart）。"""
+    added: list = []
+    for order, (path, title, featured) in enumerate(cfg.get("gallery") or []):
+        if not os.path.isfile(path):
+            log("    ! 跳过不存在的截图：%s" % path)
+            continue
+        with open(path, "rb") as f:
+            img = f.read()
+        _, item = send_form("POST", "/project/%s/gallery" % project_id, token,
+                            {"featured": "true" if featured else "false",
+                             "title": title,
+                             "ordering": str(order)},
+                            {"file": (os.path.basename(path), img, "image/png")},
+                            proxy)
+        log("    gallery[%d] %s -> %s" % (order, title, item.get("url")))
+        added.append(item)
+    return added
+
+
 def do_version(args, token: str, cfg: dict) -> int:
     proxy = args.proxy
-    proj = get_project(token, cfg["slug"], proxy)
+    proj = resolve_project(token, cfg, proxy, args.project_id)
     if not proj:
-        log("项目不存在，先运行 create。")
+        log("项目不存在，先运行 create（草稿项目 slug 查不到，请用 --project-id 指定）。")
         return finish({"error": "no project"}, 1)
     ver = do_version_upload(token, proj["id"], args, cfg, proxy)
     log("版本已上传：id=%s  %s" % (ver["id"], ver.get("version_number")))
     return finish({"version": ver}, 0)
 
 
+def do_gallery_cmd(args, token: str, cfg: dict) -> int:
+    proxy = args.proxy
+    proj = resolve_project(token, cfg, proxy, args.project_id)
+    if not proj:
+        log("项目不存在，先运行 create（草稿项目 slug 查不到，请用 --project-id 指定）。")
+        return finish({"error": "no project"}, 1)
+    items = do_gallery(token, proj["id"], cfg, proxy)
+    log("共上传 %d 张截图。" % len(items))
+    return finish({"project": proj, "gallery": items}, 0)
+
+
 def do_submit(args, token: str, cfg: dict) -> int:
     proxy = args.proxy
-    proj = get_project(token, cfg["slug"], proxy)
+    proj = resolve_project(token, cfg, proxy, args.project_id)
     if not proj:
-        log("项目不存在。")
+        log("项目不存在（草稿项目 slug 查不到，请用 --project-id 指定）。")
         return finish({"error": "no project"}, 1)
     log("当前 status=%s，提交审核（draft -> approved）……" % proj.get("status"))
     body = json.dumps({"status": "approved"}).encode("utf-8")
@@ -279,9 +367,9 @@ def do_submit(args, token: str, cfg: dict) -> int:
 
 
 def do_status(args, token: str, cfg: dict) -> int:
-    proj = get_project(token, cfg["slug"], args.proxy)
+    proj = resolve_project(token, cfg, args.proxy, args.project_id)
     if not proj:
-        log("项目不存在。")
+        log("项目不存在（草稿项目 slug 查不到，请用 --project-id 指定）。")
         return finish({"error": "no project"}, 1)
     log("title=%s status=%s downloads=%s" % (proj.get("title"), proj.get("status"),
                                              proj.get("downloads")))
@@ -292,7 +380,7 @@ def do_status(args, token: str, cfg: dict) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("command", choices=["create", "version", "submit", "status"])
+    ap.add_argument("command", choices=["create", "version", "gallery", "submit", "status"])
     ap.add_argument("--project", default=DEFAULT_PROJECT, choices=sorted(PROJECTS),
                     help="要发布的项目（默认 %s）" % DEFAULT_PROJECT)
     ap.add_argument("--token", default=os.environ.get("MODRINTH_TOKEN", ""),
@@ -304,6 +392,8 @@ def main() -> int:
     ap.add_argument("--icon", default=None)
     ap.add_argument("--body", default=None, help="项目描述 markdown 文件（默认取项目配置）")
     ap.add_argument("--proxy", default=None, help="强制代理，如 http://127.0.0.1:7890")
+    ap.add_argument("--project-id", default=None,
+                    help="项目 id（草稿项目用 slug 查不到时用它定位；create 成功后会自动记进台账）")
     args = ap.parse_args()
 
     cfg = PROJECTS[args.project]
@@ -331,7 +421,7 @@ def main() -> int:
     log("项目=%s slug=%s jar=%s v%s" % (args.project, cfg["slug"],
                                         os.path.basename(args.jar), args.number))
     try:
-        return {"create": do_create, "version": do_version,
+        return {"create": do_create, "version": do_version, "gallery": do_gallery_cmd,
                 "submit": do_submit, "status": do_status}[args.command](args, args.token, cfg)
     except RuntimeError as e:
         msg = str(e)

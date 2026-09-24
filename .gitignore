@@ -93,8 +93,9 @@ desktop-pet/color_check_after.png
 docs/WORKBUDDY_数据上传核查.md
 # 本机 Minecraft 实例路径（诊断工具用，只在本机生效）
 deskpet-tools/诊断工具/mc_path.txt
-# 渠道发布脚本的运行结果（每次跑都会覆盖，不入库）
+# 渠道发布脚本的运行结果 / 项目 id 台账（每次跑都会变，不入库）
 docs/publish/publish_modrinth_result.json
+docs/publish/publish_modrinth_state.json
 
 # ---- 美术素材（可选内容，不随主仓库发布；仅保留静态图与说明）----
 desktop-pet/assets/*
