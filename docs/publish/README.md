@@ -8,28 +8,27 @@
 | [`modrinth.md`](modrinth.md) | Modrinth | 表单字段 + 英文正文 + API 上传 |
 | [`curseforge.md`](curseforge.md) | CurseForge | 步骤 + 英文正文 + API 上传 |
 | [`mcmod.md`](mcmod.md) | MC 百科 mcmod.cn | 收录表单字段 + 中文简介 |
-| [`klpbbs.md`](klpbbs.md) | 苦力怕论坛 | 标题 + 正文 + 附件命名 |
+| [`klpbbs.md`](klpbbs.md) | 苦力怕论坛 · deskpet-mod | 标题 + 正文 + 附件命名 |
+| [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) | 苦力怕论坛 · **SmartMaid（主宣传位）** | 标题 + 正文 + 致谢声明 |
 
 辅助脚本：[`publish_modrinth.py`](publish_modrinth.py)（建项目 + 传版本 + 提审，一条命令）。
 
 ---
 
-## ⚠️ 发布前唯一的硬缺口：游戏内截图
+## 截图状态
 
-klpbbs 版规**强制**要求资源帖带 ≥2 张介绍图（无截图会被移回收站）；Modrinth / mcmod / CurseForge 有图的页面转化率也高得多。目前只有：
+- ✅ **SmartMaid 3 张已就绪**（2026-09-24，用户截）：`SmartMaid/docs/images/` ——
+  `smartmaid-inventory-gui.png`（背包+实时模型）、`smartmaid-settings-panel.png`（管理面板）、
+  `smartmaid-chat-bubble.png`（对话气泡）。已嵌入 SmartMaid README「游戏内截图」节。
+- ✅ 桌宠侧：`maid-ingame.png`（SmartMaid 游戏内）、`deskpet-mod-icon.png`（512×512）、
+  `deskpet-mod-cover.png` + `deskpet-mod-cover-240x150.png`
+- ❌ **deskpet-mod 自身的游戏内截图（建筑识别效果）仍缺**——klpbbs 的 deskpet-mod 帖（[`klpbbs.md`](klpbbs.md)）
+  发帖前必须补：正在建房子 + 桌宠气泡点评 1 张、建筑完成被识别 1 张（游戏内 F2）。
 
-- ✅ `docs/images/deskpet-mod-icon.png`（512×512，商店图标）
-- ✅ `docs/images/deskpet-mod-cover.png`（头图）+ [`deskpet-mod-cover-240x150.png`](../images/deskpet-mod-cover-240x150.png)（mcmod 封面尺寸）
-- ✅ `docs/images/maid-ingame.png`（**SmartMaid** 游戏内截图，可作姊妹模组配图）
-- ❌ **deskpet-mod 自身的游戏内截图：0 张**
+### SmartMaid 发帖前置（仅女仆帖）
 
-需要你进游戏补 2~3 张（按 F2 截图，在 `.minecraft/screenshots/`）：
-
-1. **正在建房子时**，桌宠弹出气泡点评（最有说服力，需桌宠程序同时开着）；
-2. **建筑完成瞬间**（识别出「村庄小屋/雕像」之类的那一刻）；
-3. （可选）`.minecraft/deskpet/buildings/latest.json` 用 VSCode 打开的截图——证明数据真实存在。
-
-拿到后放 `docs/images/`，四个渠道共用。
+P4 发布前收尾（`/summonmaid` 权限限制 + debug 日志关闭）**没做之前别发**——
+版规对资源质量有要求，debug 刷屏会挨差评。见 [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) §前置。
 
 ---
 
