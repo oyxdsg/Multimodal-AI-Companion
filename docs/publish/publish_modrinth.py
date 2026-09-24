@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""把 deskpet-mod 发布到 Modrinth（建项目 / 传版本 / 提审）。
+"""把模组发布到 Modrinth（建项目 / 传版本 / 提审）。支持两个项目：
 
 用法（token 从环境变量 MODRINTH_TOKEN 读取，或在 --token 传入）：
-  python docs/publish/publish_modrinth.py create     # 建 draft 项目 + 传 2.0.0 版本
-  python docs/publish/publish_modrinth.py submit     # draft -> 提交审核/公开
-  python docs/publish/publish_modrinth.py version --jar path/to/x.jar --number 2.0.1
-  python docs/publish/publish_modrinth.py status     # 查看当前项目状态
+  python docs/publish/publish_modrinth.py create                     # 默认 smartmaid：建 draft + 传 0.1.0
+  python docs/publish/publish_modrinth.py create --project deskpet-mod
+  python docs/publish/publish_modrinth.py submit                     # draft -> 提交审核/公开
+  python docs/publish/publish_modrinth.py version --jar path/to.jar --number 0.1.1
+  python docs/publish/publish_modrinth.py status
 
 仅用标准库。网络默认走环境变量代理；连不上时自动回退 127.0.0.1:7890（Clash 常用端口）。
 结果落盘 docs/publish/publish_modrinth_result.json（PowerShell 会吞 stdout，以文件为准）。
@@ -16,6 +17,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -24,24 +26,61 @@ import uuid
 BASE = "https://api.modrinth.com/v2"
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(HERE))            # docs/publish -> 仓库根
+MAID = r"C:\Users\86187\Desktop\女仆项目开发"
 RESULT_FILE = os.path.join(HERE, "publish_modrinth_result.json")
-DEFAULT_BODY = os.path.join(HERE, "modrinth-description.md")
-DEFAULT_ICON = os.path.join(REPO, "docs", "images", "deskpet-mod-icon.png")
-DEFAULT_JAR = os.path.join(REPO, "deskpet-mod", "build", "libs", "deskpet-mod-2.0.0.jar")
 FALLBACK_PROXY = "http://127.0.0.1:7890"
 
-SLUG = "deskpet-mod"
-TITLE = "DeskPet Mod"
-SUMMARY = ("Companion mod for the DeskPet desktop AI pet - it lets your desktop pet "
-           "see what happens in your world.")
-CATEGORIES = ["utility", "decoration", "game-mechanics"]
-GAME_VERSIONS = ["26.2"]
-LOADERS = ["fabric"]
-LICENSE_ID = "MIT"
-SOURCE_URL = "https://github.com/oyxdsg/Multimodal-AI-Companion"
-ISSUES_URL = "https://github.com/oyxdsg/Multimodal-AI-Companion/issues"
-CHANGELOG = ("First release: game event collection + local building recognition "
-             "for Minecraft 26.2 (Fabric).")
+PROJECTS = {
+    # 女仆模组（当前主推）
+    "smartmaid": {
+        "slug": "smartmaid",
+        "title": "Smart Maid",
+        "summary": ("A rule-driven AI maid: she follows, fights, jumps gaps and really "
+                    "does your chores. Optional AI chat & voice via the free DeskPet companion."),
+        "categories": ["adventure", "mobs", "game-mechanics"],
+        "game_versions": ["26.2"],
+        "loaders": ["fabric"],
+        "license_id": "MIT",
+        "source_url": "https://github.com/oyxdsg/SmartMaid",
+        "issues_url": "https://github.com/oyxdsg/SmartMaid/issues",
+        "body": os.path.join(HERE, "modrinth-description-smartmaid.md"),
+        "icon": os.path.join(MAID, "SmartMaid", "docs", "images", "smartmaid-icon.png"),
+        "jar": os.path.join(MAID, "SmartMaid", "build", "libs", "smartmaid-0.1.0.jar"),
+        "version": "0.1.0",
+        "title_number": "Smart Maid 0.1.0",
+        "changelog": ("First release: rule-driven AI maid for Minecraft 26.2 (Fabric) — "
+                      "combat, jump pathfinding, chores, 41-slot inventory, wooden settings menu."),
+    },
+    # 桌宠联动模组（暂缓发布，物料保留）
+    "deskpet-mod": {
+        "slug": "deskpet-mod",
+        "title": "DeskPet Mod",
+        "summary": ("Companion mod for the DeskPet desktop AI pet - it lets your desktop pet "
+                    "see what happens in your world."),
+        "categories": ["utility", "decoration", "game-mechanics"],
+        "game_versions": ["26.2"],
+        "loaders": ["fabric"],
+        "license_id": "MIT",
+        "source_url": "https://github.com/oyxdsg/Multimodal-AI-Companion",
+        "issues_url": "https://github.com/oyxdsg/Multimodal-AI-Companion/issues",
+        "body": os.path.join(HERE, "modrinth-description.md"),
+        "icon": os.path.join(REPO, "docs", "images", "deskpet-mod-icon.png"),
+        "jar": os.path.join(REPO, "deskpet-mod", "build", "libs", "deskpet-mod-2.0.0.jar"),
+        "version": "2.0.0",
+        "title_number": "DeskPet Mod 2.0.0",
+        "changelog": ("First release: game event collection + local building recognition "
+                      "for Minecraft 26.2 (Fabric)."),
+    },
+}
+DEFAULT_PROJECT = "smartmaid"
+
+
+def load_body(path: str) -> str:
+    """读取正文。文件格式：说明头 + ```markdown 围栏包住的真实正文。
+    有围栏取围栏内内容（说明头是给人看的，不上传）；无围栏取全文。"""
+    t = open(path, "r", encoding="utf-8").read()
+    m = re.search(r"^```(?:markdown|md)\s*\n(.*?)\n```\s*$", t, re.S | re.M)
+    return (m.group(1) if m else t).strip() + "\n"
 
 
 def log(msg: str) -> None:
@@ -71,7 +110,7 @@ def http(method: str, path: str, token: str, body: bytes | None = None,
             req.add_header("Authorization", token)
         if content_type:
             req.add_header("Content-Type", content_type)
-        req.add_header("User-Agent", "deskpet-publish/1.0 (github.com/oyxdsg)")
+        req.add_header("User-Agent", "oyxdsg-publish/1.0 (github.com/oyxdsg)")
         try:
             with opener.open(req, timeout=60) as resp:
                 return resp.status, json.loads(resp.read().decode("utf-8"))
@@ -79,10 +118,6 @@ def http(method: str, path: str, token: str, body: bytes | None = None,
             detail = e.read().decode("utf-8", "replace")
             if e.code == 404 and accept_404:
                 return 404, {}
-            try:
-                parsed = json.loads(detail)
-            except Exception:
-                parsed = {"raw": detail}
             raise RuntimeError("HTTP %s %s -> %s\n%s" % (method, path, e.code, detail)) from None
         except Exception as e:  # URLError / timeout / proxy refused
             last_err = e
@@ -137,37 +172,36 @@ def get_project(token: str, slug_or_id: str, proxy):
     return data if st == 200 else None
 
 
-def fabric_api_id(token: str, proxy) -> str | None:
-    proj = get_project(token, "fabric-api", proxy)
+def project_id_of(token: str, slug: str, proxy) -> str | None:
+    proj = get_project(token, slug, proxy)
     return proj.get("id") if proj else None
 
 
-def do_create(args, token: str) -> int:
+def do_create(args, token: str, cfg: dict) -> int:
     proxy = args.proxy
-    if get_project(token, SLUG, proxy):
-        log("项目 %s 已存在，改用 `version` / `submit` 子命令。" % SLUG)
-        return finish({"error": "project exists", "slug": SLUG}, 1)
+    if get_project(token, cfg["slug"], proxy):
+        log("项目 %s 已存在，改用 `version` / `submit` 子命令。" % cfg["slug"])
+        return finish({"error": "project exists", "slug": cfg["slug"]}, 1)
 
-    with open(args.body, "r", encoding="utf-8") as f:
-        body = f.read().strip()
+    body = load_body(args.body)
     with open(args.icon, "rb") as f:
         icon_bytes = f.read()
 
     project = {
-        "slug": SLUG,
-        "title": TITLE,
-        "description": SUMMARY,
+        "slug": cfg["slug"],
+        "title": cfg["title"],
+        "description": cfg["summary"],
         "body": body,
-        "categories": CATEGORIES,
+        "categories": cfg["categories"],
         "client_side": "required",
         "server_side": "optional",
-        "license_id": LICENSE_ID,
-        "source_url": SOURCE_URL,
-        "issues_url": ISSUES_URL,
+        "license_id": cfg["license_id"],
+        "source_url": cfg["source_url"],
+        "issues_url": cfg["issues_url"],
         "project_type": "mod",
         "is_draft": True,   # Modrinth 官方建议恒为 true：先草稿，确认后 submit
     }
-    log("[1/3] 创建项目（draft）……")
+    log("[1/3] 创建项目（draft）…… %s" % cfg["slug"])
     st, proj = send_form("POST", "/project", token,
                          {"data": json.dumps(project)},
                          {"icon": (os.path.basename(args.icon), icon_bytes, "image/png")},
@@ -176,17 +210,18 @@ def do_create(args, token: str) -> int:
     log("    项目 id=%s  slug=%s  status=%s" % (pid, proj.get("slug"), proj.get("status")))
 
     log("[2/3] 上传版本 %s ……" % args.number)
-    ver = do_version_upload(token, pid, args, proxy)
+    ver = do_version_upload(token, pid, args, cfg, proxy)
     log("    版本 id=%s" % ver["id"])
 
     log("[3/3] 完成。草稿地址（浏览器登录后可见）:")
-    log("    https://modrinth.com/project/%s" % SLUG)
-    log("    确认页面没问题后运行: python %s submit" % os.path.basename(__file__))
+    log("    https://modrinth.com/project/%s" % cfg["slug"])
+    log("    确认页面没问题后运行: python %s submit --project %s"
+        % (os.path.basename(__file__), args.project))
     return finish({"project": proj, "version": ver}, 0)
 
 
-def do_version_upload(token: str, project_id: str, args, proxy) -> dict:
-    fa_id = fabric_api_id(token, proxy)
+def do_version_upload(token: str, project_id: str, args, cfg: dict, proxy) -> dict:
+    fa_id = project_id_of(token, "fabric-api", proxy)
     deps = []
     if fa_id:
         deps.append({"project_id": fa_id, "dependency_type": "required"})
@@ -195,19 +230,18 @@ def do_version_upload(token: str, project_id: str, args, proxy) -> dict:
     with open(args.jar, "rb") as f:
         jar_bytes = f.read()
     data = {
-        "name": "DeskPet Mod %s" % args.number,
+        "name": args.title or cfg["title_number"],
         "version_number": args.number,
         "changelog": args.changelog,
         "dependencies": deps,
-        "game_versions": GAME_VERSIONS,
+        "game_versions": cfg["game_versions"],
         "version_type": "release",
-        "loaders": LOADERS,
+        "loaders": cfg["loaders"],
         "featured": True,
         "status": "listed",
         "project_id": project_id,
         "file_parts": ["file"],
         "primary_file": "file",
-        "environment": "client_only_server_optional",
     }
     st, ver = send_form("POST", "/version", token,
                         {"data": json.dumps(data)},
@@ -217,20 +251,20 @@ def do_version_upload(token: str, project_id: str, args, proxy) -> dict:
     return ver
 
 
-def do_version(args, token: str) -> int:
+def do_version(args, token: str, cfg: dict) -> int:
     proxy = args.proxy
-    proj = get_project(token, SLUG, proxy)
+    proj = get_project(token, cfg["slug"], proxy)
     if not proj:
         log("项目不存在，先运行 create。")
         return finish({"error": "no project"}, 1)
-    ver = do_version_upload(token, proj["id"], args, proxy)
+    ver = do_version_upload(token, proj["id"], args, cfg, proxy)
     log("版本已上传：id=%s  %s" % (ver["id"], ver.get("version_number")))
     return finish({"version": ver}, 0)
 
 
-def do_submit(args, token: str) -> int:
+def do_submit(args, token: str, cfg: dict) -> int:
     proxy = args.proxy
-    proj = get_project(token, SLUG, proxy)
+    proj = get_project(token, cfg["slug"], proxy)
     if not proj:
         log("项目不存在。")
         return finish({"error": "no project"}, 1)
@@ -241,8 +275,8 @@ def do_submit(args, token: str) -> int:
     return finish({"project": updated}, 0)
 
 
-def do_status(args, token: str) -> int:
-    proj = get_project(token, SLUG, args.proxy)
+def do_status(args, token: str, cfg: dict) -> int:
+    proj = get_project(token, cfg["slug"], args.proxy)
     if not proj:
         log("项目不存在。")
         return finish({"error": "no project"}, 1)
@@ -256,15 +290,26 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("command", choices=["create", "version", "submit", "status"])
+    ap.add_argument("--project", default=DEFAULT_PROJECT, choices=sorted(PROJECTS),
+                    help="要发布的项目（默认 %s）" % DEFAULT_PROJECT)
     ap.add_argument("--token", default=os.environ.get("MODRINTH_TOKEN", ""),
                     help="Modrinth PAT（默认读环境变量 MODRINTH_TOKEN）")
-    ap.add_argument("--jar", default=DEFAULT_JAR, help="模组 jar 路径")
-    ap.add_argument("--number", default="2.0.0", help="版本号")
-    ap.add_argument("--changelog", default=CHANGELOG)
-    ap.add_argument("--icon", default=DEFAULT_ICON)
-    ap.add_argument("--body", default=DEFAULT_BODY, help="项目描述 markdown 文件")
+    ap.add_argument("--jar", default=None, help="模组 jar 路径（默认取项目配置）")
+    ap.add_argument("--number", default=None, help="版本号（默认取项目配置）")
+    ap.add_argument("--title", default=None, help="版本标题（默认取项目配置）")
+    ap.add_argument("--changelog", default=None)
+    ap.add_argument("--icon", default=None)
+    ap.add_argument("--body", default=None, help="项目描述 markdown 文件（默认取项目配置）")
     ap.add_argument("--proxy", default=None, help="强制代理，如 http://127.0.0.1:7890")
     args = ap.parse_args()
+
+    cfg = PROJECTS[args.project]
+    # 命令行覆盖默认配置
+    args.jar = args.jar or cfg["jar"]
+    args.number = args.number or cfg["version"]
+    args.changelog = args.changelog or cfg["changelog"]
+    args.icon = args.icon or cfg["icon"]
+    args.body = args.body or cfg["body"]
 
     if not args.token:
         log("缺少 token：$env:MODRINTH_TOKEN=\"mrp_xxx\"（modrinth.com/settings/pats 生成，"
@@ -273,10 +318,18 @@ def main() -> int:
     if not os.path.isfile(args.jar):
         log("找不到 jar：%s" % args.jar)
         return 2
+    if not os.path.isfile(args.icon):
+        log("找不到图标：%s" % args.icon)
+        return 2
+    if not os.path.isfile(args.body):
+        log("找不到正文：%s" % args.body)
+        return 2
 
+    log("项目=%s slug=%s jar=%s v%s" % (args.project, cfg["slug"],
+                                        os.path.basename(args.jar), args.number))
     try:
         return {"create": do_create, "version": do_version,
-                "submit": do_submit, "status": do_status}[args.command](args, args.token)
+                "submit": do_submit, "status": do_status}[args.command](args, args.token, cfg)
     except RuntimeError as e:
         log("失败：%s" % e)
         return finish({"error": str(e)}, 1)

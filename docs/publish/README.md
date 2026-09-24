@@ -1,55 +1,55 @@
-# MC 渠道发布包（deskpet-mod）
+# MC 渠道发布包 · SmartMaid（智能女仆）
 
-> 四个渠道的**可直接投递**物料。每个文件里的文案都能整段复制粘贴。
-> 总纲与素材署名见 [`../MC渠道发布物料.md`](../MC渠道发布物料.md)（该文件中「SmartMaid 未公开」的表述已过时——它已于 2026-09-24 开源）。
+> **当前策略（2026-09-24 用户拍板）：只发女仆模组，deskpet-mod 暂缓。**
+> deskpet-mod 的物料保留在本目录备查（[`modrinth.md`](modrinth.md) / [`curseforge.md`](curseforge.md) /
+> [`mcmod.md`](mcmod.md) / [`klpbbs.md`](klpbbs.md)），暂不投递。
 
-| 文件 | 渠道 | 形式 |
+| 文件 | 渠道 | 状态 |
 |---|---|---|
-| [`modrinth.md`](modrinth.md) | Modrinth | 表单字段 + 英文正文 + API 上传 |
-| [`curseforge.md`](curseforge.md) | CurseForge | 步骤 + 英文正文 + API 上传 |
-| [`mcmod.md`](mcmod.md) | MC 百科 mcmod.cn | 收录表单字段 + 中文简介 |
-| [`klpbbs.md`](klpbbs.md) | 苦力怕论坛 · deskpet-mod | 标题 + 正文 + 附件命名 |
-| [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) | 苦力怕论坛 · **SmartMaid（主宣传位）** | 标题 + 正文 + 致谢声明 |
+| [`modrinth-smartmaid.md`](modrinth-smartmaid.md) | Modrinth | ✅ 物料齐，等你的 token |
+| [`modrinth-description-smartmaid.md`](modrinth-description-smartmaid.md) | Modrinth 英文正文 | ✅（脚本直接读取） |
+| [`mcmod-smartmaid.md`](mcmod-smartmaid.md) | MC 百科 mcmod.cn | ✅ 可投递 |
+| [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) | 苦力怕论坛 | ✅ 可投递（截图已齐） |
+| [`curseforge-smartmaid.md`](curseforge-smartmaid.md) | CurseForge | ✅ 可投递 |
 
-辅助脚本：[`publish_modrinth.py`](publish_modrinth.py)（建项目 + 传版本 + 提审，一条命令）。
-
----
-
-## 截图状态
-
-- ✅ **SmartMaid 3 张已就绪**（2026-09-24，用户截）：`SmartMaid/docs/images/` ——
-  `smartmaid-inventory-gui.png`（背包+实时模型）、`smartmaid-settings-panel.png`（管理面板）、
-  `smartmaid-chat-bubble.png`（对话气泡）。已嵌入 SmartMaid README「游戏内截图」节。
-- ✅ 桌宠侧：`maid-ingame.png`（SmartMaid 游戏内）、`deskpet-mod-icon.png`（512×512）、
-  `deskpet-mod-cover.png` + `deskpet-mod-cover-240x150.png`
-- ❌ **deskpet-mod 自身的游戏内截图（建筑识别效果）仍缺**——klpbbs 的 deskpet-mod 帖（[`klpbbs.md`](klpbbs.md)）
-  发帖前必须补：正在建房子 + 桌宠气泡点评 1 张、建筑完成被识别 1 张（游戏内 F2）。
-
-### SmartMaid 发帖前置（仅女仆帖）
-
-P4 发布前收尾（`/summonmaid` 权限限制 + debug 日志关闭）**没做之前别发**——
-版规对资源质量有要求，debug 刷屏会挨差评。见 [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) §前置。
+辅助脚本：[`publish_modrinth.py`](publish_modrinth.py)（`--project smartmaid` 已是默认；
+deskpet-mod 配置保留，随时可发）。
 
 ---
 
-## 推荐执行顺序
+## 已就绪的发布资产
 
-| 步 | 渠道 | 前置 | 我能自动做的部分 |
-|---|---|---|---|
-| 1 | **Modrinth** | 你的 Personal Access Token（`modrinth.com/settings/pats`，勾 `PROJECT_CREATE`+`VERSION_CREATE`） | 全部：建项目+传版本+提审（脚本） |
-| 2 | **mcmod.cn** | 账号（QQ 登录即可）；普通用户提交要填 2 位验证码 | 表单字段全部备好，你粘贴 |
-| 3 | **苦力怕论坛** | 账号 + 版块发帖权限（新号先看版块《发帖须知》） | 标题/正文/附件命名全部备好 |
-| 4 | **CurseForge** | 作者后台建项目（网页操作，需审核）；API token（`curseforge.com/account/api-tokens`） | 建好后我用 API 传文件 |
+- **P4 发布前收尾已完成（2026-09-24）**：
+  - 五个命令（`/summonmaid` `/maidtasks` `/maidai` `/maidanim` `/maidperception`）加
+    `Commands.hasPermission(Commands.LEVEL_GAMEMASTERS)` 权限检查（26.2 新权限 API，等同旧版等级 2）
+  - `MaidDebug.ENABLED=false`（事件级日志整体关闭；排查问题时改回 `true` 重新构建）
+  - jar 内图标（`assets/smartmaid/icon.png`，Mod Menu 可显示）+ `fabric.mod.json` 声明
+  - JDK25 重新构建 BUILD SUCCESSFUL，开包复验通过（0 残留、META-INF 许可齐全、11 表情）
+- **图标**：`SmartMaid/docs/images/smartmaid-icon.png`（512×512，女仆特写构图，
+  与 deskpet-mod 的全身像区分）；mcmod 封面 `smartmaid-cover-240x150.png`
+- **截图**：`SmartMaid/docs/images/` 三张（背包 GUI / 管理面板 / 对话气泡），已嵌入 GitHub README
+- **jar**：`smartmaid-0.1.0.jar`（~0.9 MB）
 
-发完三个渠道后，回知乎文章 / B 站补一条「已上架 Modrinth」。
+## 你的动作清单
 
----
+| 渠道 | 你要做的事 |
+|---|---|
+| Modrinth | <https://modrinth.com/settings/pats> 生成 token（勾 `PROJECT_CREATE`+`VERSION_CREATE`）→ `$env:MODRINTH_TOKEN="mrp_xxx"`，剩下的我来跑脚本 |
+| mcmod.cn | 登录 → <https://www.mcmod.cn/class/add> → 照 [`mcmod-smartmaid.md`](mcmod-smartmaid.md) 粘贴（要填 2 位验证码） |
+| 苦力怕论坛 | 登录 → 按版块模板发帖，照 [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) 粘贴 + 传 3 张截图 + jar 附件 |
+| CurseForge | 作者后台建项目 → 照 [`curseforge-smartmaid.md`](curseforge-smartmaid.md)；建好给我 token 我用 API 传文件 |
 
-## 四渠道共用的事实基线（写文案时别写错）
+## 事实基线（各渠道文案别写错）
 
-- 版本：**Minecraft 26.2（Fabric）**，Java ≥ 25，前置 **Fabric API**
-- 文件：`deskpet-mod-2.0.0.jar`（~0.12 MB，46 class，纯代码、0 图像 → MIT 干净）
-- 它**只写文件**（`.minecraft/deskpet/`），不发网络请求、无遥测；真正的体验在桌宠程序
-- 建筑识别是**服务端采集**：单机/局域网可用，**远程多人服务器不采集**（进度/聊天/合成/拾取仍可采集）
-- 许可：代码 MIT；**商店图标/头图里的角色形象是 CC BY-NC-SA 4.0**（溟月 © 上善无形 ｜ 女仆版二创 © ZipZipPipe）——每个用图的页面都要带这行署名
-- 三仓库：主程序 <https://github.com/oyxdsg/Multimodal-AI-Companion> · 动画素材 <https://github.com/oyxdsg/Multimodal-AI-Companion-Assets> · 女仆模组 <https://github.com/oyxdsg/SmartMaid>
+- **Minecraft 26.2（Fabric）**，前置 **Fabric API**，**Java ≥ 25**
+- jar：`smartmaid-0.1.0.jar`（~0.9 MB，186 entries；含 GPL-3.0 表情数据 + CC BY-NC-SA 皮肤，
+  `META-INF/` 里带 LICENSE + NOTICE）
+- **命令需要 OP（`LEVEL_GAMEMASTERS`，等同旧版等级 2）**——单机开作弊可用；服务器上只有管理员能召唤。
+  这是为了防他人服务器乱刷（P4 收尾决策，README/帖子里已写明）
+- 聊天/语音对话是**可选**功能，需配套开源桌宠程序 DeskPet；其余功能完全独立可用——
+  这条在各渠道描述里都要披露（Modrinth 规则 §2 也要求）
+- 许可：代码 MIT；`MaidMoveControl` 改编自车万女仆（MIT）；表情数据 Emotecraft（GPL-3.0）；
+  皮肤「大肥鱼」衍生（CC BY-NC-SA 4.0，禁止商用）——每处发布页都要带归属
+- 三仓库：女仆模组 <https://github.com/oyxdsg/SmartMaid> · 桌宠
+  <https://github.com/oyxdsg/Multimodal-AI-Companion> · 动画素材
+  <https://github.com/oyxdsg/Multimodal-AI-Companion-Assets>

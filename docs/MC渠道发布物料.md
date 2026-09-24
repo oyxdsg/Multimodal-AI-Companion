@@ -3,10 +3,12 @@
 > 面向 Minecraft 垂直渠道的发布准备。**结论：模组本身是纯代码 MIT，不受角色形象 CC BY-NC-SA 的约束**，
 > 可以放心发；但下面「一」的三件事必须先对齐，否则容易被误评。
 
-> **2026-09-24 更新**：可直接投递的四渠道物料包在 [`docs/publish/`](publish/README.md)
-> （Modrinth / CurseForge / mcmod / 苦力怕各自的表单字段 + 完整正文 + Modrinth 上传脚本）。
-> 另：**SmartMaid 已于同日开源**（<https://github.com/oyxdsg/SmartMaid>，包名已改 `com.oyxdsg.smartmaid`，
-> 许可见其 `NOTICE.md`）——本文中「SmartMaid 未公开 / 派生许可未理清」的表述**已过时**。
+> **2026-09-24 策略更新（用户拍板）：只发女仆模组 SmartMaid，deskpet-mod 暂缓。**
+> 女仆的可投递物料在 [`docs/publish/`](publish/README.md)（`modrinth-smartmaid.md` /
+> `mcmod-smartmaid.md` / `klpbbs-smartmaid.md` / `curseforge-smartmaid.md`）；
+> **P4 发布收尾已完成**（命令权限 `LEVEL_GAMEMASTERS` + debug 关闭 + 图标 + 重建验证）。
+> 本文其余章节保留为 deskpet-mod 的背景与物料（暂缓，但随时可启用）；
+> 另：SmartMaid 已开源 <https://github.com/oyxdsg/SmartMaid>。
 
 ---
 
@@ -260,6 +262,10 @@ Modrinth / mcmod.cn / 苦力怕论坛的图标都是**项目级图片**，不要
 
 > 如果你确实想在游戏内的模组列表里看到图标，就得接受「jar 变成混合许可」——说一声我加上。
 
+> **2026-09-24 备注（SmartMaid 的不同取舍）**：女仆模组的 jar **本来就带** CC BY-NC-SA 皮肤
+> （女仆没有皮肤就不能看），jar 是混合许可、由 `NOTICE.md` 声明——所以它的图标直接进了
+> jar（`assets/smartmaid/icon.png`，Mod Menu 可显示），不矛盾。deskpet-mod 的纯代码取舍仅对它自己适用。
+
 ### 不要做的
 
 * ❌ 把该图用于**任何变现场景**（B 站激励、公众号流量主、付费专栏、爱发电…）—— 直接违反 NC
@@ -267,14 +273,20 @@ Modrinth / mcmod.cn / 苦力怕论坛的图标都是**项目级图片**，不要
 
 ---
 
-## 七、执行顺序（✅ = 已完成）
+## 七、执行顺序（2026-09-24 起按「女仆优先」执行）
 
-1. ✅ `fabric.mod.json` 元数据修正 + 重新构建 jar（JDK 25，`deskpet-mod-2.0.0.jar`）
-2. ✅ 商店图标 / 封面（`deskpet-mod-icon.png` 512×512、`deskpet-mod-cover.png`、`deskpet-mod-cover-240x150.png`）
-3. ✅ 四渠道投递物料包（[`docs/publish/`](publish/README.md)）+ Modrinth 上传脚本
-4. ⬜ **游戏内截图 2~3 张**（建筑识别效果最有说服力）——唯一硬缺口
-5. ⬜ **发 Modrinth**（`python docs/publish/publish_modrinth.py create` → `submit`）
-6. ⬜ **提 mcmod.cn 收录**（表单字段见 `publish/mcmod.md`）
-7. ⬜ **苦力怕论坛发帖**（标题/正文/附件命名见 `publish/klpbbs.md`）
-8. ⬜ **CurseForge**（网页建项目后用 API 传文件）
-9. ⬜ 三处都发完后，回知乎/B 站补一条「已上架 Modrinth」
+**SmartMaid（当前主推，物料已齐）：**
+
+1. ✅ P4 发布收尾（命令权限 + debug 关闭 + jar 图标 + 重建验证）
+2. ✅ 图标 / 封面（`smartmaid-icon.png` 512×512、`smartmaid-cover-240x150.png`）
+3. ✅ 四渠道投递物料（[`docs/publish/`](publish/README.md)，`--project smartmaid` 为脚本默认）
+4. ⬜ **发 Modrinth**（等你 token：`python docs/publish/publish_modrinth.py create` → `submit`）
+5. ⬜ **苦力怕论坛发帖**（`publish/klpbbs-smartmaid.md`，截图已齐）
+6. ⬜ **提 mcmod.cn 收录**（`publish/mcmod-smartmaid.md`）
+7. ⬜ **CurseForge**（`publish/curseforge-smartmaid.md`）
+8. ⬜ 发完回知乎/B 站补「已上架 Modrinth」
+
+**deskpet-mod（暂缓，截图是唯一硬缺口）：**
+
+- ⬜ 游戏内截图 2~3 张（建筑识别效果）——补齐后其物料可随时启用
+- ⬜ Modrinth / mcmod / 苦力怕 / CurseForge（`--project deskpet-mod`）
