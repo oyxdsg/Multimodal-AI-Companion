@@ -192,7 +192,14 @@ my-plugin = "my_pkg:register"
 
 ## 八、示例
 
-最小骨架见 [`example-plugin/`](example-plugin/)（复制即可用）。
+最小骨架见 [`example-plugin/`](example-plugin/)（复制即可用）：含 `wiki-knowledge` +
+`knowledge-qa` 两个实现，以及 `host.llm()` 的用法；跑法与改动要点见
+[其 README](example-plugin/README.md)。
+
+```bash
+cp -r desktop-pet/docs/example-plugin desktop-pet/plugins/my-plugin
+python desktop-pet/main.py --doctor      # 确认加载与扩展点归属
+```
 
 ## 九、安全
 

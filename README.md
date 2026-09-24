@@ -94,6 +94,13 @@ python desktop-pet/main.py --smoke    # 只启动自检，不开界面
 - 原始设计稿（人设 / 建筑 / 情绪系统）：[docs/source/](docs/source/)
 - 开源方案：[docs/开源发布方案.md](docs/开源发布方案.md)
 
+## 参与贡献
+
+想改代码或写插件，先看 **[CONTRIBUTING.md](CONTRIBUTING.md)** —— 开发环境、测试怎么跑、
+必须守的契约纪律（版本铁律 / 扩展点只增不改 / 插件不 import 主体内部）与提交规范都在里面。
+
+写插件从 [**示例插件**](desktop-pet/docs/example-plugin/) 复制即可（约 100 行，含两个知识扩展点与 `host.llm()` 用法）。
+
 ## 许可
 
 主体代码 **MIT**，见 [LICENSE](LICENSE)。

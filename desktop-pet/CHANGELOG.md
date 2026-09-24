@@ -50,6 +50,9 @@
 - `--doctor` 新增 `knowledge-qa` 扩展点状态与 agentic-rag 相关依赖检查
 - 新增 `tests/test_knowledge_qa.py`（K1–K8：注册校验 / 优先级 / 零行为变化 / 异常隔离 /
   `llm()` 兜底 / 真实插件发现 / 缺索引降级 / doctor 输出）
+- 新增仓库级 [`CONTRIBUTING.md`](../CONTRIBUTING.md)：开发环境、测试跑法、契约纪律、提交规范
+- `docs/example-plugin/` 从最小骨架升级为**可照抄的完整示例**：同时演示 `wiki-knowledge` 与
+  `knowledge-qa`、`host.llm()` 用法，并配 [README](docs/example-plugin/README.md) 说明跑法与改动要点
 
 ---
 
