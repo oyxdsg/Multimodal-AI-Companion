@@ -21,6 +21,7 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 import uuid
 
@@ -163,7 +164,9 @@ def http(method: str, path: str, token: str, body: bytes | None = None,
         req.add_header("User-Agent", "oyxdsg-publish/1.0 (github.com/oyxdsg)")
         try:
             with opener.open(req, timeout=60) as resp:
-                return resp.status, json.loads(resp.read().decode("utf-8"))
+                raw = resp.read()
+                # 204 无响应体（PATCH /project、POST /gallery 都是 204），不能当 JSON 解析
+                return resp.status, (json.loads(raw.decode("utf-8")) if raw else {})
         except urllib.error.HTTPError as e:
             detail = e.read().decode("utf-8", "replace")
             if e.code == 404 and accept_404:
@@ -312,22 +315,32 @@ def do_version_upload(token: str, project_id: str, args, cfg: dict, proxy) -> di
 
 
 def do_gallery(token: str, project_id: str, cfg: dict, proxy) -> list:
-    """上传 gallery 截图（POST /project/<id>/gallery，一次一张，multipart）。"""
+    """上传 gallery 截图。官方接口 POST /project/{id|slug}/gallery：
+      - query 参数：ext(必填) featured(必填) title description ordering
+      - 请求体：**原始图片二进制**（不是 multipart！）
+      - 成功返回 204，无响应体
+    这两点都是实测踩出来的（旧实现按 multipart 提交，服务端报
+    "The image format could not be determined"）。"""
     added: list = []
     for order, (path, title, featured) in enumerate(cfg.get("gallery") or []):
         if not os.path.isfile(path):
             log("    ! 跳过不存在的截图：%s" % path)
             continue
+        ext = os.path.splitext(path)[1].lower().lstrip(".") or "png"
         with open(path, "rb") as f:
             img = f.read()
-        _, item = send_form("POST", "/project/%s/gallery" % project_id, token,
-                            {"featured": "true" if featured else "false",
-                             "title": title,
-                             "ordering": str(order)},
-                            {"file": (os.path.basename(path), img, "image/png")},
-                            proxy)
-        log("    gallery[%d] %s -> %s" % (order, title, item.get("url")))
-        added.append(item)
+        qs = urllib.parse.urlencode({
+            "ext": ext,
+            "featured": "true" if featured else "false",
+            "title": title,
+            "ordering": order,
+        })
+        st, _ = http("POST", "/project/%s/gallery?%s" % (project_id, qs), token,
+                     img, "image/png" if ext == "png" else "image/" + ext, proxy)
+        log("    gallery[%d] %-56s -> HTTP %s（%s, %d 字节）"
+            % (order, title[:56], st, ext, len(img)))
+        added.append({"title": title, "featured": featured, "ordering": order,
+                      "file": os.path.basename(path), "status": st})
     return added
 
 
@@ -354,16 +367,32 @@ def do_gallery_cmd(args, token: str, cfg: dict) -> int:
 
 
 def do_submit(args, token: str, cfg: dict) -> int:
+    """提审：草稿 -> 公开（走审核队列）。
+    PATCH /project 返回 204（无响应体），所以改完必须重新 GET 一次确认。
+    官方字段首选 `requested_status`（「提交审核/预约发布」语义），失败再退回 `status`。"""
     proxy = args.proxy
     proj = resolve_project(token, cfg, proxy, args.project_id)
     if not proj:
         log("项目不存在（草稿项目 slug 查不到，请用 --project-id 指定）。")
         return finish({"error": "no project"}, 1)
-    log("当前 status=%s，提交审核（draft -> approved）……" % proj.get("status"))
-    body = json.dumps({"status": "approved"}).encode("utf-8")
-    st, updated = http("PATCH", "/project/%s" % proj["id"], token, body, "application/json", proxy)
-    log("    新 status=%s" % updated.get("status"))
-    return finish({"project": updated}, 0)
+    pid = proj["id"]
+    log("当前 status=%s，提交审核……" % proj.get("status"))
+    last = "unknown"
+    for payload in ({"requested_status": "approved"}, {"status": "approved"}):
+        key = next(iter(payload))
+        try:
+            st, _ = http("PATCH", "/project/%s" % pid, token,
+                         json.dumps(payload).encode("utf-8"), "application/json", proxy)
+        except RuntimeError as e:
+            last = str(e)
+            log("    %s -> 失败：%s" % (key, str(e).replace("\n", " ")[:220]))
+            continue
+        after = get_project(token, pid, proxy) or {}
+        log("    %s -> HTTP %s" % (key, st))
+        log("    重新读取：status=%s  requested_status=%s"
+            % (after.get("status"), after.get("requested_status")))
+        return finish({"project": after}, 0)
+    return finish({"error": last}, 1)
 
 
 def do_status(args, token: str, cfg: dict) -> int:

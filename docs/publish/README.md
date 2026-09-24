@@ -6,7 +6,7 @@
 
 | 文件 | 渠道 | 状态 |
 |---|---|---|
-| [`modrinth-smartmaid.md`](modrinth-smartmaid.md) | Modrinth | 🟡 **草稿已建**（id `WZi1HspD`；`0.1.0` 已上传）—— 待补 gallery + 提审，需带**写权限**的新 token |
+| [`modrinth-smartmaid.md`](modrinth-smartmaid.md) | Modrinth | ✅ **已提审**（项目 `WZi1HspD`，版本 `St7IRvDA`，3 张截图 + environment 全齐，`requested_status=approved`） |
 | [`modrinth-description-smartmaid.md`](modrinth-description-smartmaid.md) | Modrinth 英文正文 | ✅（脚本直接读取） |
 | [`mcmod-smartmaid.md`](mcmod-smartmaid.md) | MC 百科 mcmod.cn | ✅ 可投递 |
 | [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) | 苦力怕论坛 | ✅ 可投递（截图已齐） |
@@ -43,6 +43,19 @@ deskpet-mod 配置保留，随时可发）。
 4. **草稿项目用 slug 查不到**（`GET /project/<slug>` 对 draft 一律 404，即使 owner），
    所以 `create` 成功后会把 `id` 记进 `publish_modrinth_state.json`（已 gitignore），
    后续 `gallery` / `submit` / `status` 靠它定位，也可用 `--project-id` 显式指定。
+5. **gallery 上传不是 multipart！** `POST /project/<id>/gallery` 的元数据全走 **query string**
+   （`ext` 与 `featured` **必填**，另有 `title`/`description`/`ordering`），**请求体就是原始图片二进制**，
+   成功返回 **204 无响应体**。按 multipart 提交会得到
+   `400 ... "The image format could not be determined"`（服务端拿整个 multipart 当图片解码）。
+   图标同理：`PATCH /project/<id>/icon?ext=png` + 原始二进制。
+6. **`PATCH /version/<id>` 的字段表里没有 `environment`**，传了会**静默忽略**（返回 204 但值不变）。
+   `environment` 只在 `POST /version` 时有效 —— 漏传想补救，只能删掉重传（或降级成 draft 再传新版本）。
+7. **删除类动作是独立权限位**：`DELETE /version/<id>` 要 `VERSION_DELETE`、`DELETE /project/<id>` 要
+   `PROJECT_DELETE`，缺了报 `401`。没有删除权限时，把多余的老版本 `PATCH` 成
+   `{"status":"draft","featured":false}` 即可做到「对访客不可见且不参与项目 environment 汇总」。
+8. **新 PAT 刚创建后可能有一两分钟权限校验不一致**：同一 token 先 404/401，隔一会儿同样的请求就 204/200
+   （实测踩到）。判据是**对照实验**——把 token 换成伪造串，若同一请求返回不同错误，说明原 token 有效；
+   别急着改脚本或重建项目。（另注：`/user` 需 `USER_READ`，只勾项目/版本权限时它 401，正常。）
 
 ---
 
@@ -63,7 +76,7 @@ deskpet-mod 配置保留，随时可发）。
 
 | 渠道 | 你要做的事 |
 |---|---|
-| Modrinth | ✅ 邮箱已验证、项目已建。**要收尾还差一个带写权限的 token**：<https://modrinth.com/settings/pats> 新建 PAT，勾 `PROJECT_CREATE` · `PROJECT_READ` · `PROJECT_WRITE` · `VERSION_CREATE` · `VERSION_READ` · `VERSION_WRITE` → 剩下的我来跑（补 gallery → 修 environment → `submit`） |
+| Modrinth | ✅ 全流程已跑完并**已提审**（在审核队列里，通过后自动公开）。**建议：把对话里出现过的那个 PAT 撤销重发**；另可在网页端 Versions 页删掉被降级的旧版本 `P86FhwTB`（不删也不影响展示） |
 | mcmod.cn | 登录 → <https://www.mcmod.cn/class/add> → 照 [`mcmod-smartmaid.md`](mcmod-smartmaid.md) 粘贴（要填 2 位验证码） |
 | 苦力怕论坛 | 登录 → 按版块模板发帖，照 [`klpbbs-smartmaid.md`](klpbbs-smartmaid.md) 粘贴 + 传 3 张截图 + jar 附件 |
 | CurseForge | 作者后台建项目 → 照 [`curseforge-smartmaid.md`](curseforge-smartmaid.md)；建好给我 token 我用 API 传文件 |
