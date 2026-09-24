@@ -14,6 +14,9 @@
 > **本仓库不含动画素材**：首次启动是**静态形象**，气泡 / 聊天 / 语音 / 游戏联动 / 设置全部可用，
 > 只是不会动。放一份素材或安装素材包即可恢复动画 —— 见下方「插件」。
 
+> 🔗 **姊妹仓库**：游戏内的智能女仆本体是 [**SmartMaid**](https://github.com/oyxdsg/SmartMaid)
+> （Minecraft 26.2 Fabric 模组，独立仓库）——想要"陪你打 Minecraft、还能指挥女仆干活"，两边的仓库都要下载。
+
 ## 仓库里有什么
 
 | 目录 | 是什么 | 文档 |
@@ -60,7 +63,7 @@ python desktop-pet/main.py --smoke    # 只启动自检，不开界面
 </div>
 
 > 配套模组：[`deskpet-mod/`](deskpet-mod/README.md)（事件采集 + 建筑识别）。
-> 女仆本体是姊妹项目 SmartMaid（独立仓库）。
+> 女仆本体是姊妹项目 [**SmartMaid**](https://github.com/oyxdsg/SmartMaid)（Minecraft 26.2 Fabric 模组，独立仓库）。
 
 ## 插件（可选，不装也能跑）
 
