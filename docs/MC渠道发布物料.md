@@ -1,7 +1,12 @@
-# MC 渠道发布物料（Modrinth / mcmod.cn / 苦力怕论坛）
+# MC 渠道发布物料（Modrinth / mcmod.cn / 苦力怕论坛 / CurseForge）
 
 > 面向 Minecraft 垂直渠道的发布准备。**结论：模组本身是纯代码 MIT，不受角色形象 CC BY-NC-SA 的约束**，
 > 可以放心发；但下面「一」的三件事必须先对齐，否则容易被误评。
+
+> **2026-09-24 更新**：可直接投递的四渠道物料包在 [`docs/publish/`](publish/README.md)
+> （Modrinth / CurseForge / mcmod / 苦力怕各自的表单字段 + 完整正文 + Modrinth 上传脚本）。
+> 另：**SmartMaid 已于同日开源**（<https://github.com/oyxdsg/SmartMaid>，包名已改 `com.oyxdsg.smartmaid`，
+> 许可见其 `NOTICE.md`）——本文中「SmartMaid 未公开 / 派生许可未理清」的表述**已过时**。
 
 ---
 
@@ -19,12 +24,14 @@ MC 渠道用户的心智是「装了就生效」。所以：
 
 ### 2. ⚠️ 女仆功能**不在**这个模组里
 
-「跟着你跑、替你挖矿打怪、听你说话」这些是**姊妹项目 SmartMaid**（另一个独立仓库，
-**目前没有远程仓库、未公开**）。
+「跟着你跑、替你挖矿打怪、听你说话」这些是**姊妹项目 SmartMaid** —— **已开源**：
+<https://github.com/oyxdsg/SmartMaid>（代码 MIT，Emotecraft 表情 GPL-3.0、大肥鱼皮肤 CC BY-NC-SA，
+明细见其 `NOTICE.md`）。
 
-所以 MC 渠道现阶段**只能讲两件事**：**游戏事件采集** + **建筑识别**。
-想讲完整故事，得先把 SmartMaid 也开源出去 —— 而它基于车万女仆（Touhou Little Maid）派生
-（包名 `com.tartaricacid.smartmaid`），开源前要先理清派生部分的许可。**这是你的决定，我不擅自动。**
+所以 MC 渠道**可以讲完整的三件套故事**了：`deskpet-mod`（游戏事件采集 + 建筑识别）→
+`DeskPet` 桌宠程序（桌面上的 AI 互动）→ `SmartMaid`（游戏内的 AI 女仆）。
+但本模组的定位不变：**它是配套模组**，文案仍以「事件采集 + 建筑识别」为主体，
+SmartMaid 和桌宠作为「生态」在结尾安利——不要把女仆写进本模组的功能清单。
 
 ### 3. ✅ jar 已验证可用（2026-09-24 开包检查）
 
@@ -260,11 +267,14 @@ Modrinth / mcmod.cn / 苦力怕论坛的图标都是**项目级图片**，不要
 
 ---
 
-## 七、执行顺序建议
+## 七、执行顺序（✅ = 已完成）
 
-1. 改 `fabric.mod.json` 元数据 + 加 icon → 重新构建 jar
-2. 出 2~3 张游戏内截图（建筑识别效果最有说服力）
-3. **发 Modrinth**（自助、免审核）
-4. 提 **mcmod.cn 收录**
-5. **苦力怕论坛**发帖（正文 + 附件）
-6. 三处都发完后，再回知乎/B站补一条「已上架 Modrinth」的更新
+1. ✅ `fabric.mod.json` 元数据修正 + 重新构建 jar（JDK 25，`deskpet-mod-2.0.0.jar`）
+2. ✅ 商店图标 / 封面（`deskpet-mod-icon.png` 512×512、`deskpet-mod-cover.png`、`deskpet-mod-cover-240x150.png`）
+3. ✅ 四渠道投递物料包（[`docs/publish/`](publish/README.md)）+ Modrinth 上传脚本
+4. ⬜ **游戏内截图 2~3 张**（建筑识别效果最有说服力）——唯一硬缺口
+5. ⬜ **发 Modrinth**（`python docs/publish/publish_modrinth.py create` → `submit`）
+6. ⬜ **提 mcmod.cn 收录**（表单字段见 `publish/mcmod.md`）
+7. ⬜ **苦力怕论坛发帖**（标题/正文/附件命名见 `publish/klpbbs.md`）
+8. ⬜ **CurseForge**（网页建项目后用 API 传文件）
+9. ⬜ 三处都发完后，回知乎/B 站补一条「已上架 Modrinth」
