@@ -3,10 +3,15 @@
   "id": "deskpet-mod",
   "version": "${version}",
   "name": "DeskPet Mod",
-  "description": "为桌面宠物（DeskPet）提供结构化游戏事件：监听玩家行为并聚合输出到独立目录 deskpet/",
-  "authors": ["DeskPet"],
+  "description": "DeskPet 桌宠配套模组：采集游戏事件 + 本地建筑识别，输出到 .minecraft/deskpet/",
+  "authors": ["oyxdsg"],
   "license": "MIT",
   "environment": "*",
+  "contact": {
+    "homepage": "https://github.com/oyxdsg/Multimodal-AI-Companion",
+    "sources": "https://github.com/oyxdsg/Multimodal-AI-Companion",
+    "issues": "https://github.com/oyxdsg/Multimodal-AI-Companion/issues"
+  },
   "entrypoints": {
     "main": ["com.deskpet.mod.DeskpetMod"],
     "client": ["com.deskpet.mod.DeskpetModClient"]

@@ -112,6 +112,17 @@ Everything is written under `.minecraft/deskpet/`:
 
 **Everything stays on your machine.** No network requests, no telemetry, no accounts, nothing is uploaded.
 
+## Credits
+
+The character art used for this mod's icon / gallery images is a derivative work based on
+**「溟月」 by 上善无形** (original character) and **女仆鲸鱼娘 by ZipZipPipe** (Bilibili, secondary design),
+used under **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** —
+attribution required, **non-commercial only**, derivatives share-alike.
+
+> 角色形象：「溟月」© 上善无形 ｜ 女仆版二次设计 © ZipZipPipe（B 站）｜ CC BY-NC-SA 4.0
+
+The mod itself contains **no artwork at all** — it is code only and is licensed **MIT**.
+
 ## Notes
 
 - This mod ships **no textures, models or artwork** — it is code only.
@@ -185,16 +196,9 @@ Everything is written under `.minecraft/deskpet/`:
 
 ---
 
-## 五、建议先改的元数据（**需重新构建 jar**）
+## 五、元数据（✅ 已改）
 
-`src/main/resources/fabric.mod.json` 目前三项偏弱：
-
-```json
-"description": "为桌面宠物（DeskPet）提供结构化游戏事件：监听玩家行为并聚合输出到独立目录 deskpet/",
-"authors": ["DeskPet"],
-```
-
-建议改为：
+`src/main/resources/fabric.mod.json` 已更新：
 
 ```json
 "description": "DeskPet 桌宠配套模组：采集游戏事件 + 本地建筑识别，输出到 .minecraft/deskpet/",
@@ -206,22 +210,53 @@ Everything is written under `.minecraft/deskpet/`:
 },
 ```
 
-并建议加一个 **`"icon": "assets/deskpet-mod/icon.png"`**（Modrinth / mcmod / 论坛都吃图标）。
+原描述**漏了建筑识别**（本模组最有价值的部分），且 `authors` 写的是 `"DeskPet"` 而非人 —— 都已修正。
 
-> 改完要 `.\gradlew.bat build` 重新出 jar（**注意必须用 JDK 25**，见 `README.md §四`）。
+**`"icon"` 字段故意没加**，理由见 §六。重新构建：JDK 25 已确认可用（HMCL 运行时，OpenJDK 25.0.1），
+构建命令见 `deskpet-mod/README.md §四`。
 
 ---
 
-## 六、素材（**注意许可**）
+## 六、素材与署名
 
-⚠️ 上一条已确认「大肥鱼/女仆鲸鱼娘」是 **CC BY-NC-SA（禁商用）**。因此商店封面与截图：
+### 已就绪
 
-| 建议 | 原因 |
-|---|---|
-| ✅ **用游戏内建筑识别截图 / 建造过程截图** | 不含角色形象，完全避开 NC |
-| ✅ 用抽象图标（方块 + 波纹/眼睛意象） | 同上 |
-| ⚠️ 桌宠气泡截图（含鲸鱼娘） | **可以放**，但别让它成为**主体**；且该内容不得用于商业目的 |
-| ❌ 用鲸鱼娘做商店主图标 | 直接踩 NC，且可能被原作者找上门 |
+| 文件 | 用途 | 尺寸 | 体积 |
+|---|---|---|---|
+| `docs/images/deskpet-mod-icon.png` | 商店图标（Modrinth / mcmod / 论坛） | 512×512 | 321 KB |
+| `docs/images/deskpet-mod-cover.png` | 商店封面 / 帖子头图 | 1781×1002 | 1.4 MB |
+
+**更正此前的说法**：我上一版写「别用鲸鱼娘做商店主图标」，**说重了**。
+CC BY-NC-SA 的 NC 禁的是**商业使用**，不是「不能出现」。用在免费开源模组的商店页上
+属于**非商业使用，允许**。
+
+### ⚠️ 但署名是硬要求
+
+素材里的角色是**他人作品**：原创 OC「溟月」@上善无形，女仆版二次设计 @ZipZipPipe（B 站），
+以 CC BY-NC-SA 4.0 开放二次创作 —— **署名（BY）是使用的前提**。
+
+**每个用到该图的地方，都请带上这一行：**
+
+> 角色形象：「溟月」© 上善无形 ｜ 女仆版二次设计 © ZipZipPipe（B 站）｜ CC BY-NC-SA 4.0
+
+（Modrinth 的 description 里已加好 Credits 段；mcmod 简介、苦力怕帖子正文也要各带一次。）
+
+### 关键取舍：图标**不放进 jar**
+
+`fabric.mod.json` 里故意**没有**加 `"icon"` 字段，因为：
+
+* **放进去** → jar 里就含了一份 CC BY-NC-SA 衍生作品，**与 jar 声明的 MIT 冲突**，
+  且整个 jar 会变成「仅限非商业使用」，使用者容易误判；
+* **不放进** → jar 保持**纯代码 MIT**，商店图单独按 CC BY-NC-SA 使用 —— 两边都干净。
+
+Modrinth / mcmod.cn / 苦力怕论坛的图标都是**项目级图片**，不要求来自 jar，所以这个取舍**零损失**。
+
+> 如果你确实想在游戏内的模组列表里看到图标，就得接受「jar 变成混合许可」——说一声我加上。
+
+### 不要做的
+
+* ❌ 把该图用于**任何变现场景**（B 站激励、公众号流量主、付费专栏、爱发电…）—— 直接违反 NC
+* ❌ 去掉署名后转发
 
 ---
 
