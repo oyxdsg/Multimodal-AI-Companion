@@ -38,6 +38,18 @@ python desktop-pet/main.py --doctor   # 查看插件与扩展点状态
 python desktop-pet/main.py --smoke    # 只启动自检，不开界面
 ```
 
+## 设置界面
+
+右键宠物 →「设置」是**唯一设置入口**，左栏 13 页按 `宠物 / 对话 / 联动 / 扩展` 四组排列。
+所有 AI 行为都在界面里配，不用改配置文件。
+
+<div align="center">
+  <img src="docs/images/settings-dialog.png" width="620" alt="设置界面 · 对话页">
+</div>
+
+上图为「对话」页：AI 模式（此处为游戏模式）、联网搜索、对话记忆、Wiki 知识提炼与过滤强度、
+人设精简程度、辅助调用后端（留空即跟随主对话）。
+
 ## 联动效果
 
 和游戏里的智能女仆联动：女仆上线后可在聊天栏对话、按住 `Y` 语音说话，AI 回复以多行气泡冒在女仆头顶；
