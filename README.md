@@ -81,7 +81,7 @@ python desktop-pet/main.py --smoke    # 只启动自检，不开界面
 
 | 内容 | 体积 | 原因 | 怎么获得 |
 |---|---:|---|---|
-| 完整动画素材（1663 帧） | ~248MB | 体积 | 配套 [**动画资源仓库**](https://github.com/oyxdsg/Multimodal-AI-Companion-Assets) 的 Release 附件，解压到 `desktop-pet/assets/` |
+| 完整动画素材（1663 帧） | ~248MB | 体积 + **角色形象为 CC BY-NC-SA 4.0（禁止商用）** | 配套 [**动画资源仓库**](https://github.com/oyxdsg/Multimodal-AI-Companion-Assets) 的 Release 附件，解压到 `desktop-pet/assets/` |
 | 绿幕素材源 | ~87MB | 离线加工输入 | 用 `deskpet-tools/` 自己转 |
 | Minecraft Wiki 数据库 | ~250MB | 派生数据（Wiki 为 CC BY-NC-SA，与 MIT 不兼容） | 用 `wiki-local` 插件自带脚本重建 |
 | RAG 向量/BM25 索引 | ~345MB | 体积 + 重依赖（faiss / torch） | 用 `agentic-rag` 插件自带脚本重建 |
@@ -103,9 +103,14 @@ python desktop-pet/main.py --smoke    # 只启动自检，不开界面
 
 ## 许可
 
-主体代码 **MIT**，见 [LICENSE](LICENSE)。
-第三方组件与数据声明见 [NOTICE](NOTICE) —— 含 Lucide、Ant Design、Minecraft Wiki、
-车万女仆、可选插件与素材的许可说明。
+**代码 MIT**，见 [LICENSE](LICENSE)。第三方组件与数据声明见 [NOTICE](NOTICE)
+—— 含 Lucide、Ant Design、Minecraft Wiki、车万女仆、可选插件的许可说明。
+
+> ⚠️ **美术素材不是 MIT**：「大肥鱼 / 女仆鲸鱼娘」角色形象**不是本项目原创**
+> （原创 OC「溟月」@上善无形，女仆版二次设计 @ZipZipPipe，B 站），
+> 依原作者声明以 **CC BY-NC-SA 4.0** 开放二次创作 —— 需**署名**、**禁止商业使用**、
+> 衍生作品须**相同方式共享**。
+> 因此随包发布的静态图与配套动画资源包**均不适用 MIT**，详见 [NOTICE](NOTICE)。
 
 > **关于 `deepseek-web` 插件**：它是对 `chat.deepseek.com` 网页内部接口的**逆向实现**，
 > 与 DeepSeek 官方无关。使用它需自行确认并遵守服务方条款，账号与可用性风险自担；
